@@ -15,9 +15,24 @@
   "label": "Antena Zagreb",
   "value": "http://s7.iqstreaming.com:8084",
 }, {
+  "label": "Antena Zagreb 80te",
+  "value": "http://s7.iqstreaming.com:8060",
+}, {
+  "label": "Enter Zagreb",
+  "value": "http://s7.iqstreaming.com:8042/",
+}, {
   "label": "Radio Dalmacija",
   "value": "http://hercules.pondi.hr:8000"
 }, {
   "label": "Totalni FM Split",
   "value": "http://173.192.137.34:8026/;"
+}, {
+  "label": "Otvoreni Radio",
+  "value": "http://87.98.250.149:8002/",
+}, {
+  "label": "Narodni Radio",
+  "value": "http://s7.iqstreaming.com:9498",
+}, {
+  "label": "Jadranski Radio",
+  "value": "http://184.154.202.243:8015/",
 }]
