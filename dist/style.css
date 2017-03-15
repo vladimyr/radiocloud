@@ -1,0 +1,42 @@
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 16px;
+}
+
+.widget {
+  width: 250px;
+}
+
+.plyr {
+  border-radius: 2.5px;
+  margin-bottom: 10px
+}
+
+.plyr .plyr__controls {
+  border: 1px solid #ddd;
+}
+
+.plyr .plyr__volume {
+  max-width: 135px !important;
+  display: block;
+}
+
+.plyr .plyr__controls button:hover {
+  background: #c62828;
+}
+
+.plyr .plyr__volume--display {
+  color: #c62828;
+}
+
+.choices__list.choices__list--single {
+  font-weight: bold;
+  color: #424242;
+}

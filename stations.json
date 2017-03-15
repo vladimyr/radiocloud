@@ -1,0 +1,20 @@
+[{
+  "label": "Antena Zagreb Rock",
+  "value": "http://s7.iqstreaming.com:8060",
+  "selected": true
+}, {
+  "label": "Antena Zagreb Love",
+  "value": "http://s7.iqstreaming.com:8068",
+}, {
+  "label": "Antena Zagreb Hit",
+  "value": "http://s7.iqstreaming.com:8066",
+}, {
+  "label": "Antena Zagreb Dance",
+  "value": "http://s7.iqstreaming.com:8064",
+}, {
+  "label": "Antena Zagreb",
+  "value": "http://s7.iqstreaming.com:8084",
+}, {
+  "label": "Radio Dalmacija",
+  "value": "http://hercules.pondi.hr:8000"
+}]

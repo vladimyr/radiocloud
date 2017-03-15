@@ -1,0 +1,26 @@
+{
+  "name": "radio-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -t bubleify index.js > ./dist/app.js",
+    "build-dev": "browserify -t bubleify index.js -d > ./dist/app.js",
+    "watch": "watchify index.js -t bubleify -d -o ./dist/app.js -v",
+    "deploy": "surge -p ./dist/ -d https://radiocloud.surge.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^14.1.0",
+    "bubleify": "^0.7.0",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "choices.js": "^2.7.6",
+    "plyr": "^2.0.11",
+    "url-join": "^1.1.0"
+  }
+}

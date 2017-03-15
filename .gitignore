@@ -1,0 +1,17 @@
+# deps
+node_modules/
+
+# editor
+.vscode
+*.sublime-*
+
+# distribution folder
+dist/*
+!dist/index.html
+!dist/style.css
+
+# OS generated stuff
+.DS_Store
+.DS_Store?
+
+npm-debug.log
