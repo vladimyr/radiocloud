@@ -12,7 +12,7 @@ body {
 }
 
 .widget {
-  width: 250px;
+  width: 280px;
 }
 
 .plyr {
@@ -25,7 +25,7 @@ body {
 }
 
 .plyr .plyr__volume {
-  max-width: 135px !important;
+  max-width: 160px !important;
   display: block;
 }
 
