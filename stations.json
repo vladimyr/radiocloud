@@ -16,8 +16,8 @@
   "value": "http://s7.iqstreaming.com:8084",
 }, {
   "label": "Radio Dalmacija",
-  "value": "http://hercules.pondi.hr:8000"
+  "value": "http://hercules.pondi.hr:8000",
 }, {
   "label": "Totalni FM Split",
-  "value": "http://173.192.137.34:8026/;"
+  "value": "http://173.192.137.34:8038",
 }]
