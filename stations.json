@@ -1,35 +1,45 @@
 [{
   "label": "Antena Zagreb Rock",
+  "path": "antena-rock",
   "value": "http://s7.iqstreaming.com:8060",
-  "selected": true
 }, {
   "label": "Antena Zagreb Love",
+  "path": "antena-love",
   "value": "http://s7.iqstreaming.com:8068"
 }, {
   "label": "Antena Zagreb Hit",
+  "path": "antena-hit",
   "value": "http://s7.iqstreaming.com:8066"
 }, {
   "label": "Antena Zagreb Dance",
+  "path": "antena-dance",
   "value": "http://s7.iqstreaming.com:8064"
 }, {
   "label": "Antena Zagreb",
+  "path": "antena",
   "value": "http://s7.iqstreaming.com:8044"
 }, {
   "label": "Enter Zagreb",
+  "path": "enter",
   "value": "http://s7.iqstreaming.com:8042"
 }, {
   "label": "Radio Dalmacija",
+  "path": "dalmacija",
   "value": "http://hercules.pondi.hr:8000"
 }, {
   "label": "Totalni FM Split",
+  "path": "totalni",
   "value": "http://173.192.137.34:8038"
 }, {
   "label": "Otvoreni Radio",
+  "path": "otvoreni",
   "value": "http://87.98.250.149:8002"
 }, {
   "label": "Narodni Radio",
+  "path": "narodni",
   "value": "http://s7.iqstreaming.com:9498"
 }, {
   "label": "Jadranski Radio",
+  "path": "jadranski",
   "value": "http://184.154.202.243:8015"
 }]

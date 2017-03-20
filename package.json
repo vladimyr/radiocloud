@@ -7,7 +7,7 @@
     "build": "browserify -t bubleify index.js > ./dist/app.js",
     "build-dev": "browserify -t bubleify index.js -d > ./dist/app.js",
     "watch": "watchify index.js -t bubleify -d -o ./dist/app.js -v",
-    "deploy": "surge -p ./dist/ -d https://radiocloud.surge.sh",
+    "deploy": "cd ./dist && mv index.html 200.html && surge . -d https://radiocloud.surge.sh && mv 200.html index.html && cd -",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
