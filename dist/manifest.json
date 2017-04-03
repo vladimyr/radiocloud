@@ -9,7 +9,7 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "theme_color": "#ffffff",
+  "theme_color": "#93DEAC",
   "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait"
