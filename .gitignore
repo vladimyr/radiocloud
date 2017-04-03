@@ -5,10 +5,8 @@ node_modules/
 .vscode
 *.sublime-*
 
-# distribution folder
-dist/*
-!dist/index.html
-!dist/style.css
+# build artifacts
+dist/app.js
 
 # OS generated stuff
 .DS_Store
