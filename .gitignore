@@ -6,7 +6,8 @@ node_modules/
 *.sublime-*
 
 # build artifacts
-dist/app.js
+dist/*
+!dist/style.css
 
 # OS generated stuff
 .DS_Store

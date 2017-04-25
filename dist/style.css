@@ -30,11 +30,11 @@ body {
 }
 
 .plyr .plyr__controls button:hover {
-  background: #93DEAC;
+  background: #FF7E50;
 }
 
 .plyr .plyr__volume--display {
-  color: #93DEAC;
+  color: #FF7E50;
 }
 
 .choices__list.choices__list--single {
