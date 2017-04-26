@@ -1,5 +1,6 @@
 {
 	"masterPicture": "./radio.svg",
+	"iconsPath": "/",
 	"design": {
 		"ios": {
 			"pictureAspect": "backgroundAndMargin",
@@ -10,8 +11,7 @@
 				"ios7AndLaterIcons": false,
 				"precomposedIcons": false,
 				"declareOnlyDefaultIcon": true
-			},
-			"appName": "Radiocloud"
+			}
 		},
 		"desktopBrowser": {},
 		"windows": {
@@ -26,16 +26,15 @@
 					"big": false,
 					"rectangle": false
 				}
-			},
-			"appName": "Radiocloud"
+			}
 		},
 		"androidChrome": {
 			"pictureAspect": "noChange",
-      "themeColor": "#ffffff",
+			"themeColor": "#ffffff",
 			"manifest": {
 				"name": "Radiocloud",
 				"display": "standalone",
-				"orientation": "portrait",
+				"orientation": "notSet",
 				"onConflict": "override",
 				"declared": true
 			},
