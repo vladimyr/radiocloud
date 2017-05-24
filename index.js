@@ -2,7 +2,6 @@
 
 const plyr = require('plyr');
 const Choices = require('choices.js');
-const urlJoin = require('url-join');
 const fade = require('fade');
 const stations = require('./stations.json');
 
@@ -27,8 +26,7 @@ $picker.passedElement.addEventListener('change', e => {
   $player.stop();
 });
 
-function setStation(player, streamUrl) {
-  let src = urlJoin(streamUrl, '/;');
+function setStation(player, src) {
   player.source({ type: 'audio', sources: [{ src }] });
 }
 

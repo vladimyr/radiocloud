@@ -26,7 +26,6 @@
   "dependencies": {
     "choices.js": "^2.7.6",
     "fade": "^0.2.0",
-    "plyr": "^2.0.11",
-    "url-join": "^1.1.0"
+    "plyr": "^2.0.11"
   }
 }
