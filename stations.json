@@ -27,6 +27,14 @@
   "path": "dalmacija",
   "value": "http://hercules.pondi.hr:8000"
 }, {
+  "label": "Radio Brač",
+  "path": "brac",
+  "value": "http://s8.iqstreaming.com:8066"
+}, {
+  "label": "Radio Kaštela",
+  "path": "kastela",
+  "value": "http://live.nrk.hr:8010"
+}, {
   "label": "Totalni FM Split",
   "path": "totalni",
   "value": "http://173.192.137.34:8038"
