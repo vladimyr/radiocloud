@@ -1,44 +1,48 @@
 @import "~choices.js/assets/styles/css/choices.css"
 @import "~plyr/dist/plyr.css"
 
-* {
-  font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+$accent = #FF7E50
+$thumb-bg = lighten($accent, 40%)
+$station-label = #424242
 
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 16px;
-  opacity: 0;
-}
+*
+  font-smoothing antialiased
+  box-sizing border-box
 
-.widget {
-  width: 280px;
-}
+body
+  font-family "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  font-size 16px
+  opacity 0
 
-.plyr {
-  border-radius: 2.5px;
-  margin-bottom: 10px
-}
+.widget
+  width 280px
 
-.plyr .plyr__controls {
-  border: 1px solid #ddd;
-}
+.plyr
+  border-radius 2.5px
+  margin-bottom 10px
 
-.plyr .plyr__volume {
-  max-width: 160px !important;
-  display: block;
-}
+.plyr--audio .plyr
+  &__controls
+    border 1px solid #ddd
 
-.plyr .plyr__controls button:hover {
-  background: #FF7E50;
-}
+  &__volume
+    max-width 160px
+    display block
 
-.plyr .plyr__volume--display {
-  color: #FF7E50;
-}
+  &__controls button:hover
+    background $accent
 
-.choices__list.choices__list--single {
-  font-weight: bold;
-  color: #424242;
-}
+  &__volume input[type=range]:active
+    &::-webkit-slider-thumb
+      background $thumb-bg
+    &::-moz-range-thumb
+      background $thumb-bg
+    &::-ms-thumb
+      background $thumb-bg
+
+  &__volume--display
+    color $accent
+
+.choices__list.choices__list--single
+  font-weight bold
+  color $station-label
