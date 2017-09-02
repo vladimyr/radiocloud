@@ -7,7 +7,18 @@ import stations from './stations.json';
 
 import './style.styl';
 
+const params = obj => Object.keys(obj).map(key => `${key}=${obj[key]}`).join(',');
+
 let $app = document.body;
+
+let $btnPopup = document.getElementsByClassName('btn-popup')[0];
+if ($btnPopup) {
+  $btnPopup.addEventListener('click', e => {
+    const width = 300;
+    const height = 500;
+    window.open(window.location.href, document.title, params({ width, height }));
+  });
+}
 
 let $player = plyr.setup('.radio-player', {
   controls: [ 'play', 'mute', 'volume' ],
