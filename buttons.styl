@@ -1,0 +1,26 @@
+button
+  float left
+  width 32px
+  height 32px
+  padding 0
+  display block
+  border-radius 3px
+  cursor pointer
+  border none
+  outline none
+  background white
+  color #565d64
+  transition ,
+    background .3s ease,
+    color .3s ease,
+    opacity .3s ease
+
+  &:hover
+    background $accent
+    color white
+
+  &:before
+    display inline-block
+    font-size 24px
+    line-height 32px
+    vertical-align middle
