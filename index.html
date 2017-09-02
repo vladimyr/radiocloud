@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Radiocloud</title>
-  <link rel="stylesheet" href="https://unpkg.com/choices.js@2.7.6/assets/styles/css/choices.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/plyr@2.0.11/dist/plyr.css">
-  <link rel="stylesheet" href="style.css">
+  <meta
+    name="version"
+    content="<%= htmlWebpackPlugin.options.version %>-rev-<%= htmlWebpackPlugin.options.revision %>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -13,6 +13,5 @@
     <audio class="radio-player" controls="controls"></audio>
     <select class="station-selector"></select>
   </div>
-  <script src="app.js"></script>
 </body>
 </html>

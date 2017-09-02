@@ -7,7 +7,7 @@ node_modules/
 
 # build artifacts
 dist/*
-!dist/style.css
+!dist/.gitkeep
 
 # OS generated stuff
 .DS_Store

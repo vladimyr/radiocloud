@@ -1,9 +1,11 @@
 'use strict';
 
-const plyr = require('plyr');
-const Choices = require('choices.js');
-const fade = require('fade');
-const stations = require('./stations.json');
+import plyr from 'plyr';
+import Choices from 'choices.js';
+import fade from 'fade';
+import stations from './stations.json';
+
+import './style.styl';
 
 let $app = document.body;
 

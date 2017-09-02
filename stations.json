@@ -1,7 +1,7 @@
 [{
   "label": "Antena Zagreb Rock",
   "path": "antena-rock",
-  "value": "http://s7.iqstreaming.com:8060/;",
+  "value": "http://s7.iqstreaming.com:8060/;"
 }, {
   "label": "Antena Zagreb Love",
   "path": "antena-love",
