@@ -37,11 +37,11 @@
 }, {
   "label": "Totalni FM Split",
   "path": "totalni",
-  "value": "http://173.192.137.34:8038/;"
+  "value": "http://c5.hostingcentar.com:8098/stream.ogg"
 }, {
   "label": "Otvoreni Radio",
   "path": "otvoreni",
-  "value": "http://87.98.250.149:8002/;"
+  "value": "http://192.240.102.133:12221/;"
 }, {
   "label": "Narodni Radio",
   "path": "narodni",
@@ -49,15 +49,15 @@
 }, {
   "label": "Narodni Radio - AAAA",
   "path": "narodni-aaaa",
-  "value": "http://s7.iqstreaming.com:9498/;"
+  "value": "http://live.narodni.hr:8043/;"
 }, {
   "label": "Narodni Radio - SAMO SVIRAJ",
   "path": "narodni-samo-sviraj",
-  "value": "http://live.narodni.hr:8043/;"
+  "value": "http://live.narodni.hr:8047/;"
 }, {
   "label": "Narodni Radio - LJUBAV",
   "path": "narodni-ljubav",
-  "value": "http://live.narodni.hr:8047/;"
+  "value": "http://live.narodni.hr:8055/;"
 }, {
   "label": "Narodni Radio - VESELO",
   "path": "narodni-veselo",
@@ -69,5 +69,5 @@
 }, {
   "label": "Jadranski Radio",
   "path": "jadranski",
-  "value": "http://184.154.202.243:8015/;"
+  "value": "http://95.154.202.117:37574/;"
 }]
