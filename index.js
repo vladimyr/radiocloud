@@ -7,6 +7,8 @@ import stations from './stations.json';
 
 import './style.styl';
 
+const normalize = str => str.trim().toLowerCase();
+const equals = (str1 = '', str2 = '') => normalize(str1) === normalize(str2);
 const params = obj => Object.keys(obj).map(key => `${key}=${obj[key]}`).join(',');
 
 let $app = document.body;
@@ -43,7 +45,7 @@ function setStation(player, src) {
   player.source({ type: 'audio', sources: [{ src }] });
 }
 
-function getPath(location=window.location) {
+function getPath(location = window.location) {
   return location.pathname.replace(/^\//, '');
 }
 
@@ -52,8 +54,4 @@ function findStation(stations, path='') {
     if (!it.path) return false;
     return equals(it.path, path);
   }) || stations[0];
-}
-
-function equals(str1, str2) {
-  return str1.trim().toLowerCase() === str2.trim().toLowerCase();
 }

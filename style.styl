@@ -1,6 +1,5 @@
 @import "~choices.js/assets/styles/css/choices.css"
 @import "~plyr/dist/plyr.css"
-@import "font/icomoon.css"
 
 $accent = #FF7E50
 $thumb-bg = lighten($accent, 40%)
@@ -33,13 +32,9 @@ body
   float left
   padding 10px
 
-  .btn-popup:before
-    position relative
-    top -1px
-
 @media (min-width: 768px)
-  .widget
-    width 290px
+  .plyr.plyr--audio .plyr__volume
+    max-width 110px
   .player-wrapper .plyr
     float left
   .controls

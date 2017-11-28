@@ -7,13 +7,16 @@
     name="version"
     content="<%= htmlWebpackPlugin.options.version %>-rev-<%= htmlWebpackPlugin.options.revision %>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div class="widget">
     <div class="player-wrapper">
       <audio class="radio-player" controls="controls"></audio>
       <div class="controls">
-        <button type="button" class="btn-popup icon-export-outline"></button>
+        <button type="button" class="btn-popup icon-export-outline">
+          <i class="material-icons">open_in_new</i>
+        </button>
       </div>
     </div>
     <select class="station-selector"></select>
