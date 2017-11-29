@@ -1,27 +1,27 @@
 [{
   "label": "Antena Zagreb Rock",
   "path": "antena-rock",
-  "value": "http://s7.iqstreaming.com:8060/;"
+  "value": "http://live.antenazagreb.hr:8019/;"
 }, {
   "label": "Antena Zagreb Love",
   "path": "antena-love",
-  "value": "http://s7.iqstreaming.com:8068/;"
+  "value": "http://live.antenazagreb.hr:8007/;"
 }, {
   "label": "Antena Zagreb Hit",
   "path": "antena-hit",
-  "value": "http://s7.iqstreaming.com:8066/;"
+  "value": "http://live.antenazagreb.hr:8011/;"
 }, {
   "label": "Antena Zagreb Dance",
   "path": "antena-dance",
-  "value": "http://s7.iqstreaming.com:8064/;"
+  "value": "http://live.antenazagreb.hr:8015/;"
 }, {
   "label": "Antena Zagreb",
   "path": "antena",
-  "value": "http://s7.iqstreaming.com:8044/;"
+  "value": "http://live.antenazagreb.hr:8000/;"
 }, {
   "label": "Enter Zagreb",
   "path": "enter",
-  "value": "http://s7.iqstreaming.com:8042/;"
+  "value": "http://live.enterzagreb.hr:8023/stream"
 }, {
   "label": "Radio Dalmacija",
   "path": "dalmacija",
@@ -45,7 +45,27 @@
 }, {
   "label": "Narodni Radio",
   "path": "narodni",
+  "value": "http://live.narodni.hr:8059/;"
+}, {
+  "label": "Narodni Radio - AAAA",
+  "path": "narodni-aaaa",
   "value": "http://s7.iqstreaming.com:9498/;"
+}, {
+  "label": "Narodni Radio - SAMO SVIRAJ",
+  "path": "narodni-samo-sviraj",
+  "value": "http://live.narodni.hr:8043/;"
+}, {
+  "label": "Narodni Radio - LJUBAV",
+  "path": "narodni-ljubav",
+  "value": "http://live.narodni.hr:8047/;"
+}, {
+  "label": "Narodni Radio - VESELO",
+  "path": "narodni-veselo",
+  "value": "http://live.narodni.hr:8051/;"
+}, {
+  "label": "Narodni Radio - OPUSTENO",
+  "path": "narodni-opusteno",
+  "value": "http://live.narodni.hr:8039/; "
 }, {
   "label": "Jadranski Radio",
   "path": "jadranski",
