@@ -7,51 +7,62 @@ import stations from './stations.json';
 
 import './style.styl';
 
-const normalize = str => str.trim().toLowerCase();
-const equals = (str1 = '', str2 = '') => normalize(str1) === normalize(str2);
-const params = obj => Object.keys(obj).map(key => `${key}=${obj[key]}`).join(',');
+const App = (new class {
+  constructor(el) {
+    this.el = el;
+  }
 
-let $app = document.body;
+  run(stations) {
+    this.player = this.setupPlayer('.radio-player');
+    this.stationPicker = this.setupStationPicker('.station-picker', stations);
 
-let $btnPopup = document.getElementsByClassName('btn-popup')[0];
-if ($btnPopup) {
-  $btnPopup.addEventListener('click', e => {
-    const width = 300;
-    const height = 500;
-    window.open(window.location.href, document.title, params({ width, height }));
-  });
-}
+    this.playing = false;
+    this.station = this.setStation(stations[0]);
 
-let $player = plyr.setup('.radio-player', {
-  controls: [ 'play', 'mute', 'volume' ],
-  keyboardShortcuts: { focused: true, global: true }
-})[0];
+    fade.in(this.el);
+  }
 
-let path = getPath(window.location);
-let selectedStation = findStation(stations, path);
-selectedStation.selected = true;
+  setupPlayer(selector) {
+    const $player = plyr.setup(selector, {
+      controls: [ 'play', 'mute', 'volume' ],
+      keyboardShortcuts: { focused: true, global: true }
+    })[0];
+    const $container = $player.getContainer().parentNode;
+    const $btnPopup = $container.querySelector('.btn-popup');
+    $btnPopup && $btnPopup.addEventListener('click', () => this.openPopup());
+    return $player;
+  }
 
-let $picker = new Choices('.station-selector', { choices: stations });
-setStation($player, $picker.passedElement.value);
+  setupStationPicker(selector, stations = []) {
+    const choices = stations.map(it => ({
+      label: it.name,
+      value: it.url,
+      customProperties: { station: it }
+    }));
+    const $picker = new Choices(selector, { choices });
+    $picker.passedElement.addEventListener('change', () => {
+      const { station } = $picker.getValue().customProperties;
+      this.setStation(station);
+      this.player.stop();
+    });
+  }
 
-fade.in($app);
+  openPopup(width = 300, height = 500) {
+    const url = window.location.href;
+    window.open(url, document.title, params({ width, height }));
+  }
 
-$picker.passedElement.addEventListener('change', e => {
-  setStation($player, e.target.value);
-  $player.stop();
-});
+  setStation(station) {
+    this.player.source({ type: 'audio', sources: [{ src: station.url }]});
+    document.title = `${station.name} - Radiocloud`;
+    this.station = station;
+  }
+}(document.body));
 
-function setStation(player, src) {
-  player.source({ type: 'audio', sources: [{ src }] });
-}
+App.run(stations);
 
-function getPath(location = window.location) {
-  return location.pathname.replace(/^\//, '');
-}
-
-function findStation(stations, path='') {
-  return stations.find(it => {
-    if (!it.path) return false;
-    return equals(it.path, path);
-  }) || stations[0];
+function params(options = {}) {
+  return Object.keys(options)
+    .map(key => `${key}=${options[key]}`)
+    .join(',');
 }

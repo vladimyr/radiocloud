@@ -18,14 +18,14 @@
   "devDependencies": {
     "cli-real-favicon": "0.0.6",
     "git-rev-sync": "^1.9.1",
-    "poi": "^9.3.3",
+    "poi": "^9.5.5",
     "poi-preset-buble": "^9.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1"
   },
   "dependencies": {
-    "choices.js": "^2.7.6",
+    "choices.js": "^3.0.2",
     "fade": "^0.2.0",
-    "plyr": "^2.0.11"
+    "plyr": "^2.0.18"
   }
 }
