@@ -14,10 +14,13 @@ const App = (new class {
 
   run(stations) {
     this.player = this.setupPlayer('.radio-player');
-    this.stationPicker = this.setupStationPicker('.station-picker', stations);
-
     this.playing = false;
-    this.station = this.setStation(stations[0]);
+
+    const stationUrl = window.localStorage.getItem('stationUrl');
+    const byStationUrl = it => it.url === stationUrl;
+    const selectedStation = stations.filter(byStationUrl)[0] || stations[0];
+    this.station = this.setStation(selectedStation);
+    this.stationPicker = this.setupStationPicker('.station-picker', stations);
 
     fade.in(this.el);
   }
@@ -37,6 +40,7 @@ const App = (new class {
     const choices = stations.map(it => ({
       label: it.name,
       value: it.url,
+      selected: it.selected,
       customProperties: { station: it }
     }));
     const $picker = new Choices(selector, { choices });
@@ -55,7 +59,10 @@ const App = (new class {
   setStation(station) {
     this.player.source({ type: 'audio', sources: [{ src: station.url }]});
     document.title = `${station.name} - Radiocloud`;
+    if (this.station) this.station.selected = false;
     this.station = station;
+    this.station.selected = true;
+    window.localStorage.setItem('stationUrl', this.station.url);
   }
 }(document.body));
 
