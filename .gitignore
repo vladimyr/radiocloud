@@ -2,6 +2,7 @@
 node_modules/
 
 # editor
+.idea
 .vscode
 *.sublime-*
 
