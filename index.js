@@ -26,9 +26,13 @@ const App = (new class {
   }
 
   setupPlayer(selector) {
+    const keyboardShortcuts = { focused: true, global: true };
     const $player = plyr.setup(selector, {
       controls: [ 'play', 'mute', 'volume' ],
-      keyboardShortcuts: { focused: true, global: true }
+      // NOTE: Required due to misspelling:
+      //       https://github.com/sampotts/plyr/blob/v2.0.18/src/js/plyr.js#L53
+      keyboardShorcuts: keyboardShortcuts,
+      keyboardShortcuts
     })[0];
     const $container = $player.getContainer().parentNode;
     const $btnPopup = $container.querySelector('.btn-popup');
