@@ -16,7 +16,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "cli-real-favicon": "0.0.6",
+    "cli-real-favicon": "^0.0.6",
     "git-rev-sync": "^1.9.1",
     "poi": "^9.5.5",
     "poi-preset-buble": "^9.0.1",

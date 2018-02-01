@@ -7,6 +7,9 @@ import stations from './stations.json';
 
 import './style.styl';
 
+const KEY_SPACE = 32;
+const KEY_K = 75;
+
 const App = (new class {
   constructor(el) {
     this.el = el;
@@ -26,6 +29,13 @@ const App = (new class {
   }
 
   setupPlayer(selector) {
+    // Install shortcut hook.
+    window.addEventListener('keydown', e => {
+      if (!$player.isPaused()) return;
+      const keyCode = e.keyCode ? e.keyCode : e.which;
+      if (keyCode === KEY_K) this.onPlay();
+    }, { useCapture: true });
+    // Setup player.
     const keyboardShortcuts = { focused: true, global: true };
     const $player = plyr.setup(selector, {
       controls: [ 'play', 'mute', 'volume' ],
@@ -35,6 +45,15 @@ const App = (new class {
       keyboardShortcuts
     })[0];
     const $container = $player.getContainer().parentNode;
+    // Install action hooks.
+    const $controls = $container.querySelector('.plyr__controls');
+    const $btnPlay = $controls.querySelector('[data-plyr="play"]');
+    $controls && $controls.addEventListener('click', e => {
+      const $el = e.target;
+      if ($btnPlay.isSameNode($el) || $btnPlay.contains($el)) this.onPlay();
+    }, { capture: true });
+    $player.on('pause', () => this.onPause());
+    // Setup popup button.
     const $btnPopup = $container.querySelector('.btn-popup');
     $btnPopup && $btnPopup.addEventListener('click', () => this.openPopup());
     return $player;
@@ -55,16 +74,28 @@ const App = (new class {
     });
   }
 
+  onPlay() {
+    this._setSource(this.station.url);
+  }
+
+  onPause() {
+    this._setSource(null);
+  }
+
   openPopup(width = 300, height = 500) {
     const url = window.location.href;
     window.open(url, document.title, params({ width, height }));
   }
 
   setStation(station) {
-    this.player.source({ type: 'audio', sources: [{ src: station.url }]});
     document.title = `${station.name} - Radiocloud`;
     window.localStorage.setItem('stationUrl', station.url);
     this.station = station;
+  }
+
+  _setSource(streamUrl) {
+    streamUrl = streamUrl || '';
+    this.player.source({ type: 'audio', sources: [{ src: streamUrl }]});
   }
 }(document.body));
 
