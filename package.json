@@ -18,13 +18,13 @@
   "devDependencies": {
     "cli-real-favicon": "^0.0.6",
     "git-rev-sync": "^1.9.1",
-    "poi": "^9.5.5",
-    "poi-preset-buble": "^9.0.1",
+    "poi": "^9.6.13",
+    "poi-preset-buble": "^9.2.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1"
   },
   "dependencies": {
-    "choices.js": "^3.0.2",
+    "choices.js": "^3.0.3",
     "fade": "^0.2.0",
     "plyr": "^2.0.18"
   }
