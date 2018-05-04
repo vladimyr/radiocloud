@@ -7,7 +7,7 @@ import stations from './stations.json';
 
 import './style.styl';
 
-const KEY_SPACE = 32;
+// const KEY_SPACE = 32;
 const KEY_K = 75;
 
 class Player extends Plyr {
