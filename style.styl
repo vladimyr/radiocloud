@@ -19,6 +19,7 @@ body
   width 280px
 
 .player-wrapper
+  position relative
   border-radius 2.5px
   margin-bottom 10px
   border 1px solid #ddd
@@ -29,12 +30,15 @@ body
 
 .controls
   display none
-  float left
   padding 10px
+  position: absolute;
+  right: 0;
 
 @media (min-width: 768px)
+  .plyr.plyr--audio
+    width 100%
   .plyr.plyr--audio .plyr__volume
-    max-width 110px
+    max-width 140px
   .player-wrapper .plyr
     float left
   .controls
@@ -51,17 +55,13 @@ body
   &__controls button:hover
     background $accent
 
-  &__volume input[type=range]:active
-    &::-webkit-slider-thumb
-      background $thumb-bg
-    &::-moz-range-thumb
-      background $thumb-bg
-    &::-ms-thumb
-      background $thumb-bg
-
-  &__volume--display
+  &__volume input[type=range]
     color $accent
 
-.choices__list.choices__list--single
-  font-weight bold
-  color $station-label
+.choices__list
+  &.choices__list--single
+    font-weight bold
+    color $station-label
+
+  &--dropdown .choices__item
+    padding 8px 10px

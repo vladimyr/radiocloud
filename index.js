@@ -1,6 +1,6 @@
 'use strict';
 
-import plyr from 'plyr';
+import Plyr from 'plyr';
 import Choices from 'choices.js';
 import fade from 'fade';
 import stations from './stations.json';
@@ -10,16 +10,32 @@ import './style.styl';
 const KEY_SPACE = 32;
 const KEY_K = 75;
 
+class Player extends Plyr {
+  constructor(...args) {
+    super(...args);
+    this._hooks = [];
+  }
+
+  play() {
+    this._hooks.play && this._hooks.play();
+    super.play();
+  }
+
+  hook(action, fn) {
+    this._hooks[action] = fn;
+  }
+}
+
 const App = (new class {
   constructor(el) {
     this.el = el;
   }
 
   run(stations) {
-    this.player = this.setupPlayer('.radio-player');
+    this.plyr = this.setupPlayer('.radio-player');
     this.playing = false;
 
-    const stationUrl = window.localStorage.getItem('stationUrl');
+    const stationUrl = this.plyr.storage.get('stationUrl');
     const byStationUrl = it => it.url === stationUrl;
     const selectedStation = stations.filter(byStationUrl)[0] || stations[0];
     this.setStation(selectedStation);
@@ -31,32 +47,23 @@ const App = (new class {
   setupPlayer(selector) {
     // Install shortcut hook.
     window.addEventListener('keydown', e => {
-      if (!$player.isPaused()) return;
+      if (!plyr.paused) return;
       const keyCode = e.keyCode ? e.keyCode : e.which;
       if (keyCode === KEY_K) this.onPlay();
     }, { useCapture: true });
     // Setup player.
-    const keyboardShortcuts = { focused: true, global: true };
-    const $player = plyr.setup(selector, {
+    const plyr = new Player(selector, {
       controls: [ 'play', 'mute', 'volume' ],
-      // NOTE: Required due to misspelling:
-      //       https://github.com/sampotts/plyr/blob/v2.0.18/src/js/plyr.js#L53
-      keyboardShorcuts: keyboardShortcuts,
-      keyboardShortcuts
-    })[0];
-    const $container = $player.getContainer().parentNode;
+      keyboard: { focused: true, global: true }
+    });
     // Install action hooks.
-    const $controls = $container.querySelector('.plyr__controls');
-    const $btnPlay = $controls.querySelector('[data-plyr="play"]');
-    $controls && $controls.addEventListener('click', e => {
-      const $el = e.target;
-      if ($btnPlay.isSameNode($el) || $btnPlay.contains($el)) this.onPlay();
-    }, { capture: true });
-    $player.on('pause', () => this.onPause());
+    plyr.hook('play', () => this.onPlay());
+    plyr.on('pause', () => this.onPause());
     // Setup popup button.
-    const $btnPopup = $container.querySelector('.btn-popup');
-    $btnPopup && $btnPopup.addEventListener('click', () => this.openPopup());
-    return $player;
+    const { container } = plyr.elements;
+    const btnPopup = container.parentNode.querySelector('.btn-popup');
+    btnPopup && btnPopup.addEventListener('click', () => this.openPopup());
+    return plyr;
   }
 
   setupStationPicker(selector, stations = []) {
@@ -66,11 +73,11 @@ const App = (new class {
       selected: it === this.station,
       customProperties: { station: it }
     }));
-    const $picker = new Choices(selector, { choices });
-    $picker.passedElement.addEventListener('change', () => {
-      const { station } = $picker.getValue().customProperties;
+    const picker = new Choices(selector, { choices });
+    picker.passedElement.addEventListener('change', () => {
+      const { station } = picker.getValue().customProperties;
       this.setStation(station);
-      this.player.stop();
+      this.plyr.stop();
     });
   }
 
@@ -89,13 +96,13 @@ const App = (new class {
 
   setStation(station) {
     document.title = `${station.name} - Radiocloud`;
-    window.localStorage.setItem('stationUrl', station.url);
+    this.plyr.storage.set({ stationUrl: station.url });
     this.station = station;
   }
 
   _setSource(streamUrl) {
     streamUrl = streamUrl || '';
-    this.player.source({ type: 'audio', sources: [{ src: streamUrl }]});
+    this.plyr.source = { type: 'audio', sources: [{ src: streamUrl }] };
   }
 }(document.body));
 
