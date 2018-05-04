@@ -1,73 +1,58 @@
 [{
   "name": "Antena Zagreb Rock",
-  "path": "antena-rock",
   "url": "http://live.antenazagreb.hr:8019/;"
 }, {
   "name": "Antena Zagreb Love",
-  "path": "antena-love",
   "url": "http://live.antenazagreb.hr:8007/;"
 }, {
   "name": "Antena Zagreb Hit",
-  "path": "antena-hit",
   "url": "http://live.antenazagreb.hr:8011/;"
 }, {
   "name": "Antena Zagreb Dance",
-  "path": "antena-dance",
   "url": "http://live.antenazagreb.hr:8015/;"
 }, {
   "name": "Antena Zagreb",
-  "path": "antena",
   "url": "http://live.antenazagreb.hr:8000/;"
 }, {
   "name": "Enter Zagreb",
-  "path": "enter",
   "url": "http://live.enterzagreb.hr:8023/stream"
 }, {
   "name": "Radio Dalmacija",
-  "path": "dalmacija",
   "url": "http://hercules.pondi.hr:8000/stream"
 }, {
   "name": "Radio Brač",
-  "path": "brac",
   "url": "http://s8.iqstreaming.com:8066/;"
 }, {
   "name": "Radio Kaštela",
-  "path": "kastela",
   "url": "http://live.nrk.hr:8010/stream"
 }, {
   "name": "Totalni FM Split",
-  "path": "totalni",
   "url": "http://c5.hostingcentar.com:8098/stream.ogg"
 }, {
   "name": "Otvoreni Radio",
-  "path": "otvoreni",
   "url": "http://192.240.102.133:12221/;"
 }, {
   "name": "Narodni Radio",
-  "path": "narodni",
   "url": "http://live.narodni.hr:8059/;"
 }, {
   "name": "Narodni Radio - AAAA",
-  "path": "narodni-aaaa",
   "url": "http://live.narodni.hr:8043/;"
 }, {
   "name": "Narodni Radio - SAMO SVIRAJ",
-  "path": "narodni-samo-sviraj",
   "url": "http://live.narodni.hr:8047/;"
 }, {
   "name": "Narodni Radio - LJUBAV",
-  "path": "narodni-ljubav",
   "url": "http://live.narodni.hr:8055/;"
 }, {
   "name": "Narodni Radio - VESELO",
-  "path": "narodni-veselo",
   "url": "http://live.narodni.hr:8051/;"
 }, {
   "name": "Narodni Radio - OPUSTENO",
-  "path": "narodni-opusteno",
   "url": "http://live.narodni.hr:8039/; "
 }, {
   "name": "Jadranski Radio",
-  "path": "jadranski",
   "url": "http://95.154.202.117:37574/;"
+}, {
+  "name": "ExtraFM",
+  "url": "http://94.130.66.170:8110/;"
 }]
