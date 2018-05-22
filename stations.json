@@ -17,6 +17,9 @@
   "name": "Enter Zagreb",
   "url": "http://live.enterzagreb.hr:8023/stream"
 }, {
+  "name": "Hit Radio",
+  "url": "http://s8.iqstreaming.com:8012/stream"
+}, {
   "name": "Radio Dalmacija",
   "url": "http://hercules.pondi.hr:8000/stream"
 }, {
