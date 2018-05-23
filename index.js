@@ -77,6 +77,7 @@ const App = (new class {
     picker.passedElement.addEventListener('change', () => {
       const { station } = picker.getValue().customProperties;
       this.setStation(station);
+      if (this.plyr.playing) return this.plyr.play();
       this.plyr.stop();
     });
   }
