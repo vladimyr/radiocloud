@@ -40,7 +40,6 @@ const App = (new class {
     const selectedStation = stations.filter(byStationUrl)[0] || stations[0];
     this.setStation(selectedStation);
     this.stationPicker = this.setupStationPicker('.station-picker', stations);
-    this.plyr.play();
 
     fade.in(this.el);
   }
@@ -78,8 +77,9 @@ const App = (new class {
     picker.passedElement.addEventListener('change', () => {
       const { station } = picker.getValue().customProperties;
       this.setStation(station);
-      this.plyr.stop();
-      this.plyr.play();
+
+      if (this.plyr.playing) this.plyr.play();
+      else this.plyr.stop();
     });
   }
 
