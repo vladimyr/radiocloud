@@ -1,5 +1,11 @@
 'use strict';
 
+const {
+  ElementTree,
+  Element: element,
+  SubElement: subElement
+} = require('elementtree');
+
 const escape = title => title.replace(/-/g, '\u2013');
 const trimLeft = (strings, ...values) => interweave(strings, ...values).trimLeft();
 
@@ -22,6 +28,23 @@ ${stream.url}`;
 module.exports.m3u8 = streams => trimLeft`
 #EXTM3U
 ${streams.map(stream => m3u8Entry(stream)).join('\n')}`;
+
+const xspfTrack = (trackList, stream) => {
+  const track = subElement(trackList, 'track');
+  const location = subElement(track, 'location');
+  location.text = stream.url;
+  const title = subElement(track, 'title');
+  title.text = stream.name;
+};
+
+module.exports.xspf = streams => {
+  const root = element('playlist');
+  root.set('xmlns', 'http://xspf.org/ns/0/');
+  root.set('version', 1);
+  const trackList = subElement(root, 'trackList');
+  streams.forEach(stream => xspfTrack(trackList, stream));
+  return (new ElementTree(root)).write({ indent: 2 });
+};
 
 function interweave(strings, ...values) {
   let output = '';
