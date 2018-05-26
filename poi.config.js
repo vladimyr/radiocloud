@@ -1,4 +1,4 @@
-const { version } = require('./package.json');
+const { name, version } = require('./package.json');
 const revision = require('git-rev-sync').short();
 
 const filename = mode => mode === 'development' ? 'index.html' : '200.html';
@@ -15,7 +15,8 @@ module.exports = (options, req) => ({
     version,
     revision,
     template: 'index.html',
-    filename: filename(options.mode)
+    filename: filename(options.mode),
+    appname: name
   },
   extendWebpack(config) {
     config.resolve.alias.merge(aliases);

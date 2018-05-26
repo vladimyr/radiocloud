@@ -10,7 +10,8 @@
     "favicons:generate": "real-favicon generate ./favicons.config.json ./dist/favicons.json ./dist/",
     "favicons:inject": "real-favicon inject ./dist/favicons.json ./dist/ ./dist/200.html",
     "favicons": "npm run favicons:generate && npm run favicons:inject",
-    "deploy": "npm run build && npm run favicons && surge ./dist/ -d https://radiocloud.surge.sh",
+    "playlists": "node scripts/createPlaylists.js ./dist/",
+    "deploy": "npm run build && npm run playlists && npm run favicons && surge ./dist/ -d https://radiocloud.surge.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
