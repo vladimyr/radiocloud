@@ -29,6 +29,9 @@
   "name": "Radio Kaštela",
   "url": "http://live.nrk.hr:8010/stream"
 }, {
+  "name": "Radio Sunce",
+  "url": "http://shoutcast.pondi.hr:8002/;"
+}, {
   "name": "Totalni FM Split",
   "url": "http://c5.hostingcentar.com:8098/stream.ogg"
 }, {
