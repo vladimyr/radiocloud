@@ -29,6 +29,9 @@
   "name": "Radio Kaštela",
   "url": "http://live.nrk.hr:8010/stream"
 }, {
+  "name": "Radio Student",
+  "url": "http://161.53.122.184:8000/AAC128.aac"
+}, {
   "name": "Totalni FM Split",
   "url": "http://c5.hostingcentar.com:8098/stream.ogg"
 }, {
