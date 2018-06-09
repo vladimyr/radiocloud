@@ -1,0 +1,76 @@
+# NOTE: This file is in JSPF compatible format
+#       http://www.xspf.org/jspf/
+playlist:
+  track: [
+    title: "Antena Zagreb Rock",
+    location: "http://live.antenazagreb.hr:8019/;"
+  ,
+    title: "Antena Zagreb Love",
+    location: "http://live.antenazagreb.hr:8007/;"
+  ,
+    title: "Antena Zagreb Hit",
+    location: "http://live.antenazagreb.hr:8011/;"
+  ,
+    title: "Antena Zagreb Dance",
+    location: "http://live.antenazagreb.hr:8015/;"
+  ,
+    title: "Antena Zagreb",
+    location: "http://live.antenazagreb.hr:8000/;"
+  ,
+    title: "Enter Zagreb",
+    location: "http://live.enterzagreb.hr:8023/stream"
+  ,
+    title: "Hit Radio",
+    location: "http://s8.iqstreaming.com:8012/stream"
+  ,
+    title: "Radio Dalmacija",
+    location: "http://hercules.pondi.hr:8000/stream"
+  ,
+    title: "Radio Brač",
+    location: "http://s8.iqstreaming.com:8066/;"
+  ,
+    title: "Radio Kaštela",
+    location: "http://live.nrk.hr:8010/stream"
+  ,
+    title: "Radio Student",
+    location: "http://161.53.122.184:8000/AAC128.aac"
+  ,
+    title: "Radio Sunce",
+    location: "http://shoutcast.pondi.hr:8002/;"
+  ,
+    title: "Totalni FM Split",
+    location: "http://c5.hostingcentar.com:8098/stream.ogg"
+  ,
+    title: "Otvoreni Radio",
+    location: "http://192.240.102.133:12221/;"
+  ,
+    title: "Narodni Radio",
+    location: "http://live.narodni.hr:8059/;"
+  ,
+    title: "Narodni Radio - AAAA",
+    location: "http://live.narodni.hr:8043/;"
+  ,
+    title: "Narodni Radio - SAMO SVIRAJ",
+    location: "http://live.narodni.hr:8047/;"
+  ,
+    title: "Narodni Radio - LJUBAV",
+    location: "http://live.narodni.hr:8055/;"
+  ,
+    title: "Narodni Radio - VESELO",
+    location: "http://live.narodni.hr:8051/;"
+  ,
+    title: "Narodni Radio - OPUSTENO",
+    location: "http://live.narodni.hr:8039/; "
+  ,
+    title: "Jadranski Radio",
+    location: "http://85.17.172.242:8060/"
+  ,
+    title: "ExtraFM",
+    location: "http://c7.hostingcentar.com:8110/;"
+  ,
+    title: "Rock Radio SI",
+    location: "http://212.18.63.135:9034/;"
+  ,
+    title: "Laganini Zagreb",
+    location: "http://50.7.70.58:8915/;"
+  ]

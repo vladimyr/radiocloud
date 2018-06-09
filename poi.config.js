@@ -19,7 +19,17 @@ module.exports = (options, req) => ({
     appname: name
   },
   extendWebpack(config) {
+    /* eslint-disable indent */
+    config.module
+      .rule('cson')
+      .test(/\.cson$/)
+      .exclude
+        .add(/node_modules/)
+        .end()
+      .use('cson-loader')
+        .loader('cson-loader');
     config.resolve.alias.merge(aliases);
+    /* eslint-enable indent */
   },
   sourceMap: options.mode === 'development'
 });

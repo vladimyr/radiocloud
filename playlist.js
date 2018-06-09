@@ -10,8 +10,8 @@ const escape = title => title.replace(/-/g, '\u2013');
 const trimLeft = (strings, ...values) => interweave(strings, ...values).trimLeft();
 
 const plsEntry = (stream, pos = 1) => trimLeft`
-File${pos}=${stream.url}
-Title${pos}=${stream.name}
+File${pos}=${stream.location}
+Title${pos}=${stream.title}
 Length${pos}=-1`;
 
 module.exports.pls = streams => trimLeft`
@@ -22,8 +22,8 @@ ${streams.map((stream, i) => plsEntry(stream, i + 1)).join('\n\n')}
 Version=2`;
 
 const m3u8Entry = stream => trimLeft`
-#EXTINF:0,${escape(stream.name)}
-${stream.url}`;
+#EXTINF:0,${escape(stream.title)}
+${stream.location}`;
 
 module.exports.m3u8 = streams => trimLeft`
 #EXTM3U
@@ -32,9 +32,9 @@ ${streams.map(stream => m3u8Entry(stream)).join('\n')}`;
 const xspfTrack = (trackList, stream) => {
   const track = subElement(trackList, 'track');
   const location = subElement(track, 'location');
-  location.text = stream.url;
+  location.text = stream.location;
   const title = subElement(track, 'title');
-  title.text = stream.name;
+  title.text = stream.title;
 };
 
 module.exports.xspf = streams => {

@@ -3,7 +3,7 @@
 import Plyr from 'plyr';
 import Choices from 'choices.js';
 import fade from 'fade';
-import stations from './stations.json';
+import { playlist } from './stations.cson';
 
 import './style.styl';
 
@@ -36,7 +36,7 @@ const App = (new class {
     this.playing = false;
 
     const stationUrl = this.plyr.storage.get('stationUrl');
-    const byStationUrl = it => it.url === stationUrl;
+    const byStationUrl = it => it.location === stationUrl;
     const selectedStation = stations.filter(byStationUrl)[0] || stations[0];
     this.setStation(selectedStation);
     this.stationPicker = this.setupStationPicker('.station-picker', stations);
@@ -68,8 +68,8 @@ const App = (new class {
 
   setupStationPicker(selector, stations = []) {
     const choices = stations.map(it => ({
-      label: it.name,
-      value: it.url,
+      label: it.title,
+      value: it.location,
       selected: it === this.station,
       customProperties: { station: it }
     }));
@@ -83,7 +83,7 @@ const App = (new class {
   }
 
   onPlay() {
-    this._setSource(this.station.url);
+    this._setSource(this.station.location);
   }
 
   onPause() {
@@ -96,8 +96,8 @@ const App = (new class {
   }
 
   setStation(station) {
-    document.title = `${station.name} - Radiocloud`;
-    this.plyr.storage.set({ stationUrl: station.url });
+    document.title = `${station.title} - Radiocloud`;
+    this.plyr.storage.set({ stationUrl: station.location });
     this.station = station;
   }
 
@@ -107,7 +107,7 @@ const App = (new class {
   }
 }(document.body));
 
-App.run(stations);
+App.run(playlist.track);
 
 function params(options = {}) {
   return Object.keys(options)
