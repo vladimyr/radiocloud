@@ -69,25 +69,48 @@ body
     padding 8px 10px
 
 .playlist
-  margin-top -16px
+  $border = 1px solid #ddd
+  $border-radius = 2.5px
+
+  display flex
+  width 100%
+  margin-top -14px
+  line-height 38px
+  border $border
+  border-radius $border-radius
+  user-select none
+
+  .icon
+    margin -1px
+    margin-right 0
+    border 1px solid $accent
+    border-radius $border-radius 0 0 $border-radius
+    background $accent
+    color #ffffff
+    padding 0 10px
+
+  .icon i.material-icons
+    display inline-block
+    line-height inherit
+    vertical-align top
+
+  .buttons
+    display flex
+    flex-grow 1
 
   a
     display inline-block
-    line-height 34px
-    padding 0 10px
+    flex-grow 1
+    padding 0 8px
+    min-width 70px
+    text-align center
     vertical-align top
+    text-decoration none
     color darken($button-color, 15%)
-    border-radius 2.5px
     transition all .3s ease
 
+  a:not(:last-child)
+    border-right $border
+
   a:hover
-    background $accent
-    color #fff
-
-  a + a
-    margin-left 2px
-
-  i.material-icons
-    line-height inherit
-    vertical-align inherit
-    margin-right 8px
+    background #f2f2f2

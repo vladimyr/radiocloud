@@ -21,15 +21,18 @@
     </div>
     <select class="station-picker"></select>
     <div class="playlist">
-      <a href="/<%= htmlWebpackPlugin.options.appname %>.pls" download target="_blank">
-        <i class="material-icons">queue_music</i>.pls
-      </a>
-      <a href="/<%= htmlWebpackPlugin.options.appname %>.m3u8" download target="_blank">
-        <i class="material-icons">queue_music</i>.m3u8
-      </a>
-      <a href="/<%= htmlWebpackPlugin.options.appname %>.xspf" download target="_blank">
-        <i class="material-icons">queue_music</i>.xspf
-      </a>
+      <span class="icon"><i class="material-icons">queue_music</i></span>
+      <span class="buttons">
+        <a href="/<%= htmlWebpackPlugin.options.appname %>.pls" download target="_blank">
+          .pls
+        </a>
+        <a href="/<%= htmlWebpackPlugin.options.appname %>.m3u8" download target="_blank">
+          .m3u8
+        </a>
+        <a href="/<%= htmlWebpackPlugin.options.appname %>.xspf" download target="_blank">
+          .xspf
+        </a>
+      </span>
     </div>
   </div>
 </body>
