@@ -38,8 +38,8 @@ playlist:
     title: "Radio Sunce",
     location: "http://shoutcast.pondi.hr:8002/;"
   ,
-    title: "Totalni FM Split",
-    location: "http://c5.hostingcentar.com:8098/stream.ogg"
+    title: "Ultra Split",
+    location: "http://c5.hostingcentar.com:8061/stream"
   ,
     title: "Otvoreni Radio",
     location: "http://192.240.102.133:12221/;"
