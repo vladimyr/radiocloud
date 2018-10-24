@@ -32,6 +32,9 @@ playlist:
     title: "Radio Kaštela",
     location: "http://live.nrk.hr:8010/stream"
   ,
+    title: "Radio Trogir",
+    location: "http://grtg.streamradio.com.hr:9560/;"
+  ,
     title: "Radio Student",
     location: "http://161.53.122.184:8000/AAC128.aac"
   ,
