@@ -41,7 +41,7 @@
     "plyr": "^3.2.4"
   },
   "devDependencies": {
-    "cli-real-favicon": "^0.0.6",
+    "cli-real-favicon": "^0.0.7",
     "cson-loader": "^0.1.0",
     "elementtree": "^0.1.7",
     "eslint": "^5.0.0",
