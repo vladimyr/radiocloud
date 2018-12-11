@@ -1,4 +1,4 @@
-@import "~choices.js/assets/styles/css/choices.css"
+@import "~choices.js/public/assets/styles/choices.css"
 @import "~plyr/dist/plyr.css"
 
 $accent = #FF7E50
@@ -69,16 +69,45 @@ body
   &--dropdown .choices__item
     padding 8px 10px
 
-.playlist
-  $border = 1px solid #ddd
-  $border-radius = 2.5px
-
-  display flex
+box($border = 1px solid #ddd, $border-radius = 2.5px)
   width 100%
-  margin-top -14px
-  line-height 38px
   border $border
   border-radius $border-radius
+
+.stream-info
+  box()
+  margin-top -14px
+  margin-bottom 10px
+  padding 5px 10px
+  font-size 14px
+  line-height 18px
+
+  .field
+    display flex
+
+  .label
+    min-width 90px
+    font-weight 500
+    color lighten($station-label, 20%)
+    user-select none
+
+  input
+    flex-grow 1
+    color lighten($station-label, 10%)
+    margin-left 10px
+    border none
+    background none
+    font-size 12px
+    line-height inherit
+
+    &:focus
+      outline none
+
+.playlist
+  $border = 1px solid #ddd
+  box($border)
+  display flex
+  line-height 38px
   user-select none
 
   .icon

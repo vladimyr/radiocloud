@@ -3,7 +3,7 @@
 import Plyr from 'plyr';
 import Choices from 'choices.js';
 import fade from 'fade';
-import { playlist } from './stations.cson';
+import stations from './stations?aot';
 
 import './style.styl';
 
@@ -26,6 +26,11 @@ class Player extends Plyr {
   }
 }
 
+const castString = val => val || 'unknown';
+const formatCodec = (codec, profile) => profile ? `${codec} (${profile})` : codec;
+const formatBitrate = bitrate => bitrate && `${(bitrate / 1000).toFixed(2)} kb/s`;
+const formatSampleRate = sampleRate => sampleRate && `${(sampleRate / 1000).toFixed(2)} kHz`;
+
 const App = (new class {
   constructor(el) {
     this.el = el;
@@ -35,6 +40,7 @@ const App = (new class {
     this.plyr = this.setupPlayer('.radio-player');
     this.playing = false;
 
+    this.streamInfo = this.setupStreamInfo('.stream-info');
     const stationUrl = this.plyr.storage.get('stationUrl');
     const byStationUrl = it => it.location === stationUrl;
     const selectedStation = stations.filter(byStationUrl)[0] || stations[0];
@@ -74,12 +80,26 @@ const App = (new class {
       customProperties: { station: it }
     }));
     const picker = new Choices(selector, { choices });
-    picker.passedElement.addEventListener('change', () => {
+    picker.passedElement.element.addEventListener('change', () => {
       const { station } = picker.getValue().customProperties;
       this.setStation(station);
       if (this.plyr.playing) return this.plyr.play();
       this.plyr.stop();
     });
+  }
+
+  setupStreamInfo(selector) {
+    const el = document.querySelector(selector);
+    const codecField = el.querySelector('input#codec');
+    const bitrateField = el.querySelector('input#bitrate');
+    const sampleRateField = el.querySelector('input#sampleRate');
+    return {
+      update({ codec, profile, bitrate, sampleRate } = {}) {
+        codecField.value = castString(formatCodec(codec, profile));
+        bitrateField.value = castString(formatBitrate(bitrate));
+        sampleRateField.value = castString(formatSampleRate(sampleRate));
+      }
+    };
   }
 
   onPlay() {
@@ -99,6 +119,7 @@ const App = (new class {
     document.title = `${station.title} - Radiocloud`;
     this.plyr.storage.set({ stationUrl: station.location });
     this.station = station;
+    this.streamInfo.update(station.stream);
   }
 
   _setSource(streamUrl) {
@@ -107,7 +128,7 @@ const App = (new class {
   }
 }(document.body));
 
-App.run(playlist.track);
+App.run(stations);
 
 function params(options = {}) {
   return Object.keys(options)

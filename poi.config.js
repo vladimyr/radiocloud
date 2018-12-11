@@ -3,7 +3,7 @@ const revision = require('git-rev-sync').short();
 
 const filename = mode => mode === 'development' ? 'index.html' : '200.html';
 const aliases = {
-  'choices.js$': 'choices.js/assets/scripts/dist/choices.js'
+  'choices.js$': 'choices.js/public/assets/scripts/choices.js'
 };
 
 module.exports = (options, req) => ({
@@ -21,13 +21,15 @@ module.exports = (options, req) => ({
   extendWebpack(config) {
     /* eslint-disable indent */
     config.module
-      .rule('cson')
-      .test(/\.cson$/)
+      .rule('aot')
+      .test(/\.js$/)
+      .enforce('post')
+      .resourceQuery(/\?aot$/)
       .exclude
         .add(/node_modules/)
         .end()
-      .use('cson-loader')
-        .loader('cson-loader');
+      .use('aot-loader')
+        .loader('aot-loader');
     config.resolve.alias.merge(aliases);
     /* eslint-enable indent */
   },

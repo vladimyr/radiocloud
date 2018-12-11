@@ -28,7 +28,7 @@
   "author": {
     "email": "d.vladimyr@gmail.com",
     "name": "Dario Vladovic",
-    "url": "github.com/vladimyr"
+    "url": "https://github.com/vladimyr"
   },
   "license": "MIT",
   "bugs": {
@@ -41,8 +41,10 @@
     "plyr": "^3.2.4"
   },
   "devDependencies": {
+    "aot-loader": "^1.0.1",
+    "avprobemeta": "0.0.3",
     "cli-real-favicon": "^0.0.7",
-    "cson-loader": "^0.1.0",
+    "cson-parser": "^4.0.0",
     "elementtree": "^0.1.7",
     "eslint": "^5.0.0",
     "eslint-config-semistandard": "^13.0.0",
@@ -52,6 +54,8 @@
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "git-rev-sync": "^1.12.0",
+    "minimist": "^1.2.0",
+    "p-map": "^2.0.0",
     "poi": "^9.6.13",
     "poi-preset-buble": "^9.2.0",
     "season": "^6.0.2",
