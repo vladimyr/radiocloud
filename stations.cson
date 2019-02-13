@@ -24,7 +24,7 @@ playlist:
     location: "http://s8.iqstreaming.com:8012/stream"
   ,
     title: "Radio Dalmacija",
-    location: "http://hercules.pondi.hr:8000/stream"
+    location: "http://shoutcast.pondi.hr:8000/stream"
   ,
     title: "Radio Brač",
     location: "http://s8.iqstreaming.com:8066/;"
@@ -33,7 +33,7 @@ playlist:
     location: "http://live.nrk.hr:8010/stream"
   ,
     title: "Radio Trogir",
-    location: "http://grtg.streamradio.com.hr:9560/;"
+    location: "http://bravo856.server4you.de:8016/stream"
   ,
     title: "Radio Student",
     location: "http://161.53.122.184:8000/AAC128.aac"
@@ -45,7 +45,7 @@ playlist:
     location: "http://c5.hostingcentar.com:8061/stream"
   ,
     title: "Otvoreni Radio",
-    location: "http://192.240.102.133:12221/;"
+    location: "http://87.98.250.149:8002/;"
   ,
     title: "Narodni Radio",
     location: "http://live.narodni.hr:8059/;"
@@ -69,7 +69,7 @@ playlist:
     location: "http://85.17.172.242:8060/"
   ,
     title: "ExtraFM",
-    location: "http://c7.hostingcentar.com:8110/;"
+    location: "http://streams.extrafm.hr:8110/;"
   ,
     title: "Rock Radio SI",
     location: "http://212.18.63.135:9034/;"
