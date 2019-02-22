@@ -2,12 +2,13 @@
 node_modules/
 
 # editor
+.idea
 .vscode
 *.sublime-*
 
 # build artifacts
 dist/*
-!dist/style.css
+!dist/.gitkeep
 
 # OS generated stuff
 .DS_Store

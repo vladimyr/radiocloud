@@ -1,0 +1,29 @@
+$size = 32px
+
+button
+  display inline-block
+  float left
+  width $size
+  height $size
+  line-height $size
+  text-align center
+  vertical-align top
+  padding 0
+  border-radius 3px
+  cursor pointer
+  border none
+  outline none
+  background inherit
+  color $button-color
+  transition ,
+    background .3s ease,
+    color .3s ease,
+    opacity .3s ease
+
+  i.material-icons
+    line-height inherit
+    vertical-align inherit
+
+  &:hover
+    background $accent
+    color white

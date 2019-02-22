@@ -1,0 +1,146 @@
+@import "~choices.js/public/assets/styles/choices.css"
+@import "~plyr/dist/plyr.css"
+
+$accent = #FF7E50
+$thumb-bg = lighten($accent, 40%)
+$station-label = #424242
+$playlist-selector = #90989c
+$button-color = #565d64
+@import "buttons"
+
+*
+  font-smoothing antialiased
+  box-sizing border-box
+
+body
+  font-family "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  font-size 16px
+  opacity 0
+
+.widget
+  width 280px
+
+.player-wrapper
+  position relative
+  border-radius 2.5px
+  margin-bottom 10px
+  border 1px solid #ddd
+  overflow auto
+
+  .plyr
+    float none
+
+.controls
+  display none
+  padding 10px
+  position absolute
+  right 0
+  background #ffffff
+
+@media (min-width: 768px)
+  .plyr.plyr--audio
+    width 100%
+  .plyr.plyr--audio .plyr__volume
+    max-width 140px
+  .player-wrapper .plyr
+    float left
+  .controls
+    display block
+
+.plyr--audio .plyr
+  &__controls
+    border none
+
+  &__volume
+    max-width 160px
+    display block
+
+  &__controls button:hover
+    background $accent
+
+  &__volume input[type=range]
+    color $accent
+
+.choices__list
+  &.choices__list--single
+    font-weight bold
+    color $station-label
+
+  &--dropdown .choices__item
+    padding 8px 10px
+
+box($border = 1px solid #ddd, $border-radius = 2.5px)
+  width 100%
+  border $border
+  border-radius $border-radius
+
+.stream-info
+  box()
+  margin-top -14px
+  margin-bottom 10px
+  padding 5px 10px
+  font-size 14px
+  line-height 18px
+
+  .field
+    display flex
+
+  .label
+    min-width 90px
+    font-weight 500
+    color lighten($station-label, 20%)
+    user-select none
+
+  input
+    flex-grow 1
+    color lighten($station-label, 10%)
+    margin-left 10px
+    border none
+    background none
+    font-size 12px
+    line-height inherit
+
+    &:focus
+      outline none
+
+.playlist
+  $border = 1px solid #ddd
+  box($border)
+  display flex
+  line-height 38px
+  user-select none
+
+  .icon
+    margin -1px
+    margin-right 0
+    border 1px solid $playlist-selector
+    border-radius $border-radius 0 0 $border-radius
+    background $playlist-selector
+    color #ffffff
+    padding 0 10px
+
+  .icon i.material-icons
+    display inline-block
+    line-height inherit
+    vertical-align top
+
+  .buttons
+    display flex
+    flex-grow 1
+
+  a
+    display inline-block
+    flex-grow 1
+    padding 0 8px
+    min-width 50px
+    text-align center
+    vertical-align top
+    text-decoration none
+    color darken($button-color, 15%)
+    transition all .3s ease
+
+  a:not(:last-child)
+    border-right $border
+
+  a:hover
+    background #f2f2f2

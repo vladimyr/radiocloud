@@ -1,31 +1,65 @@
 {
-  "name": "radio-dashboard",
+  "name": "radiocloud",
   "version": "1.0.0",
-  "description": "",
+  "description": "Online radio player",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -t bubleify index.js > ./dist/app.js",
-    "build-dev": "browserify -t bubleify index.js -d > ./dist/app.js",
-    "html": "cp index.html ./dist/200.html",
+    "lint": "eslint .",
+    "dev": "poi",
+    "build": "poi build",
     "favicons:generate": "real-favicon generate ./favicons.config.json ./dist/favicons.json ./dist/",
     "favicons:inject": "real-favicon inject ./dist/favicons.json ./dist/ ./dist/200.html",
-    "watch": "npm run html && watchify index.js -t bubleify -d -o ./dist/app.js -v",
-    "predeploy": "npm run build && npm run html && npm run favicons:generate && npm run favicons:inject",
-    "deploy": "npm run predeploy && surge ./dist/ -d https://radiocloud.surge.sh",
+    "favicons": "npm run favicons:generate && npm run favicons:inject",
+    "playlists": "node scripts/createPlaylists.js ./dist/",
+    "deploy": "npm run build && npm run playlists && npm run favicons && surge ./dist/ -d https://radiocloud.surge.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "browserify": "^14.1.0",
-    "bubleify": "^0.7.0",
-    "cli-real-favicon": "0.0.6",
-    "watchify": "^3.9.0"
+  "keywords": [
+    "radio",
+    "player",
+    "stream",
+    "shoutcast",
+    "icecast"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vladimyr/radiocloud.git"
   },
+  "author": {
+    "email": "d.vladimyr@gmail.com",
+    "name": "Dario Vladovic",
+    "url": "https://github.com/vladimyr"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vladimyr/radiocloud/issues"
+  },
+  "homepage": "https://github.com/vladimyr/radiocloud",
   "dependencies": {
-    "choices.js": "^2.7.6",
+    "choices.js": "^4.0.0",
     "fade": "^0.2.0",
-    "plyr": "^2.0.11"
+    "plyr": "^3.2.4"
+  },
+  "devDependencies": {
+    "aot-loader": "^1.0.1",
+    "avprobemeta": "0.0.3",
+    "cli-real-favicon": "^0.0.7",
+    "cson-parser": "^4.0.0",
+    "elementtree": "^0.1.7",
+    "eslint": "^5.0.0",
+    "eslint-config-semistandard": "^13.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "git-rev-sync": "^1.12.0",
+    "minimist": "^1.2.0",
+    "p-map": "^2.0.0",
+    "poi": "^9.6.13",
+    "poi-preset-buble": "^9.2.0",
+    "season": "^6.0.2",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
   }
 }

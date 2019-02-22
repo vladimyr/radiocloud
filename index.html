@@ -3,17 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Radiocloud</title>
-  <link rel="stylesheet" href="https://unpkg.com/choices.js@2.7.6/assets/styles/css/choices.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/plyr@2.0.11/dist/plyr.css">
-  <link rel="stylesheet" href="style.css">
+  <meta
+    name="version"
+    content="<%= htmlWebpackPlugin.options.version %>-rev-<%= htmlWebpackPlugin.options.revision %>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div class="widget">
-    <audio class="radio-player" controls="controls"></audio>
-    <select class="station-selector"></select>
+    <div class="player-wrapper">
+      <audio class="radio-player" controls="controls"></audio>
+      <div class="controls">
+        <button type="button" class="btn-popup">
+          <i class="material-icons">open_in_new</i>
+        </button>
+      </div>
+    </div>
+    <select class="station-picker"></select>
+    <div class="stream-info">
+      <div class="field codec">
+        <label for="codec" class="label">Codec:</label>
+        <input type="text" name="codec" id="codec" readonly>
+      </div>
+      <div class="field bitrate">
+        <label for="bitrate" class="label">Bitrate:</label>
+        <input type="text" name="bitrate" id="bitrate" readonly>
+      </div>
+      <div class="field sampleRate">
+        <label for="sampleRate" class="label">Sample Rate:</label>
+        <input type="text" name="sampleRate" id="sampleRate" readonly>
+      </div>
+    </div>
+    <div class="playlist">
+      <span class="icon"><i class="material-icons">queue_music</i></span>
+      <span class="buttons">
+        <a href="/<%= htmlWebpackPlugin.options.appname %>.pls" download target="_blank">
+          .pls
+        </a>
+        <a href="/<%= htmlWebpackPlugin.options.appname %>.m3u8" download target="_blank">
+          .m3u8
+        </a>
+        <a href="/<%= htmlWebpackPlugin.options.appname %>.xspf" download target="_blank">
+          .xspf
+        </a>
+        <a href="/<%= htmlWebpackPlugin.options.appname %>.jspf" download target="_blank">
+          .jspf
+        </a>
+      </span>
+    </div>
   </div>
-  <script src="app.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </body>
 </html>
