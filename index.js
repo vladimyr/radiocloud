@@ -3,6 +3,7 @@
 import Plyr from 'plyr';
 import Choices from 'choices.js';
 import fade from 'fade';
+import Caster from './caster';
 import stations from './stations?aot';
 
 import './style.styl';
@@ -34,12 +35,16 @@ const formatSampleRate = sampleRate => sampleRate && `${(sampleRate / 1000).toFi
 const App = (new class {
   constructor(el) {
     this.el = el;
+    this.plyr = null;
+    this.station = null;
+    this.streamInfo = null;
+    this.stationPicker = null;
+    this.caster = null;
   }
 
   run(stations) {
     this.plyr = this.setupPlayer('.radio-player');
-    this.playing = false;
-
+    this.caster = this.setupCaster();
     this.streamInfo = this.setupStreamInfo('.stream-info');
     const stationUrl = this.plyr.storage.get('stationUrl');
     const byStationUrl = it => it.location === stationUrl;
@@ -83,8 +88,8 @@ const App = (new class {
     picker.passedElement.element.addEventListener('change', () => {
       const { station } = picker.getValue().customProperties;
       this.setStation(station);
-      if (this.plyr.playing) return this.plyr.play();
-      this.plyr.stop();
+      if (this.plyr.playing) this.plyr.play();
+      else if (this.caster.isPlaying) this.caster.play();
     });
   }
 
@@ -102,8 +107,24 @@ const App = (new class {
     };
   }
 
+  setupCaster() {
+    const caster = new Caster(this.plyr);
+
+    window.__onGCastApiAvailable = (isAvailable) => {
+      if (isAvailable) {
+        caster.init();
+      }
+    };
+
+    return caster;
+  }
+
   onPlay() {
-    this._setSource(this.station.location);
+    if (this.caster && this.caster.remotePlayer && this.caster.remotePlayer.isConnected) {
+      this.caster.play();
+    } else {
+      this._setSource(this.station.location);
+    }
   }
 
   onPause() {
@@ -120,6 +141,7 @@ const App = (new class {
     this.plyr.storage.set({ stationUrl: station.location });
     this.station = station;
     this.streamInfo.update(station.stream);
+    this.caster.setMediaSource(station);
   }
 
   _setSource(streamUrl) {
