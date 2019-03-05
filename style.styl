@@ -21,21 +21,32 @@ body
   width 280px
 
 .player-wrapper
-  position relative
+  display flex
   border-radius 2.5px
   margin-bottom 10px
   border 1px solid #ddd
   overflow auto
 
   .plyr
+    min-width auto
     float none
 
 .controls
-  display none
+  display flex
   padding 10px
-  position absolute
-  right 0
   background #ffffff
+
+  .btn-cast
+    padding 4px
+    --disconnected-color: $button-color
+    --connected-color: $accent
+
+    &:hover
+      --disconnected-color: white
+      --connected-color: white
+
+  .btn-popup
+    display none
 
 @media (min-width: 768px)
   .plyr.plyr--audio
@@ -44,8 +55,8 @@ body
     max-width 140px
   .player-wrapper .plyr
     float left
-  .controls
-    display block
+  .controls .btn-popup
+    display inline-block
 
 .plyr--audio .plyr
   &__controls

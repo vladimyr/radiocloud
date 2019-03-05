@@ -34,12 +34,15 @@ const formatSampleRate = sampleRate => sampleRate && `${(sampleRate / 1000).toFi
 const App = (new class {
   constructor(el) {
     this.el = el;
+    this.plyr = null;
+    this.station = null;
+    this.streamInfo = null;
+    this.stationPicker = null;
+    this.caster = null;
   }
 
   run(stations) {
     this.plyr = this.setupPlayer('.radio-player');
-    this.playing = false;
-
     this.streamInfo = this.setupStreamInfo('.stream-info');
     const stationUrl = this.plyr.storage.get('stationUrl');
     const byStationUrl = it => it.location === stationUrl;
@@ -48,6 +51,15 @@ const App = (new class {
     this.stationPicker = this.setupStationPicker('.station-picker', stations);
 
     fade.in(this.el);
+  }
+
+  setupCaster(caster) {
+    caster.setMediaSource(this.station);
+    caster.on('cast:start', () => {
+      this.plyr.pause();
+      this.caster.play();
+    });
+    this.caster = caster;
   }
 
   setupPlayer(selector) {
@@ -84,7 +96,7 @@ const App = (new class {
       const { station } = picker.getValue().customProperties;
       this.setStation(station);
       if (this.plyr.playing) return this.plyr.play();
-      this.plyr.stop();
+      if (this.caster && this.caster.isPlaying) this.caster.play();
     });
   }
 
@@ -103,6 +115,7 @@ const App = (new class {
   }
 
   onPlay() {
+    if (this.caster && this.caster.isConnected) return this.caster.play();
     this._setSource(this.station.location);
   }
 
@@ -120,6 +133,7 @@ const App = (new class {
     this.plyr.storage.set({ stationUrl: station.location });
     this.station = station;
     this.streamInfo.update(station.stream);
+    if (this.caster) this.caster.setMediaSource(station);
   }
 
   _setSource(streamUrl) {
@@ -128,10 +142,29 @@ const App = (new class {
   }
 }(document.body));
 
+window.__onGCastApiAvailable = (isAvailable) => {
+  if (!isAvailable) return;
+  require.ensure([], () => {
+    const Caster = require('./caster').default;
+    App.setupCaster(new Caster().init());
+  });
+};
+
 App.run(stations);
+loadScript('https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1');
 
 function params(options = {}) {
   return Object.keys(options)
     .map(key => `${key}=${options[key]}`)
     .join(',');
+}
+
+function loadScript(url) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.onerror = reject;
+    script.onload = resolve;
+    script.src = url;
+    (document.head || document.documentElement).appendChild(script);
+  });
 }
