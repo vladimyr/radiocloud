@@ -59,7 +59,6 @@ const App = (new class {
       this.plyr.pause();
       this.caster.play();
     });
-    caster.on('cast:stop', () => this.plyr.play());
     this.caster = caster;
   }
 
@@ -147,9 +146,7 @@ window.__onGCastApiAvailable = (isAvailable) => {
   if (!isAvailable) return;
   require.ensure([], () => {
     const Caster = require('./caster').default;
-    const caster = new Caster();
-    caster.init();
-    App.setupCaster(caster);
+    App.setupCaster(new Caster().init());
   });
 };
 

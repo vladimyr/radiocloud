@@ -14,7 +14,6 @@ const {
   GenericMediaMetadata,
   LoadRequest,
   MediaInfo,
-  MetadataType,
   StreamType
 } = chrome.cast.media;
 
@@ -28,9 +27,6 @@ export default class Caster extends EventEmitter {
     this.mediaSource = null;
     this.initInterval = null;
     this.isPlaying = false;
-
-    this.onConnectedChanged = this.switchPlayer.bind(this);
-    this.onPausedChanged = this.togglePause.bind(this);
   }
 
   get castContext() {
@@ -56,39 +52,32 @@ export default class Caster extends EventEmitter {
     this.remotePlayerController = new RemotePlayerController(this.remotePlayer);
     this.remotePlayerController.addEventListener(
       RemotePlayerEventType.IS_CONNECTED_CHANGED,
-      this.onConnectedChanged
+      ({ value: isConnected }) => {
+        isConnected ? this.emit('cast:start') : this.emit('cast:stop');
+      }
     );
     this.remotePlayerController.addEventListener(
       RemotePlayerEventType.IS_PAUSED_CHANGED,
-      this.onPausedChanged
+      isPaused => (this.isPlaying = !isPaused)
     );
-  }
 
-  switchPlayer() {
-    if (this.remotePlayer.isConnected) return this.emit('cast:start');
-    return this.emit('cast:stop');
-  }
-
-  togglePause(isPaused) {
-    this.isPlaying = !isPaused.value;
+    return this;
   }
 
   play() {
-    const mediaInfo = new MediaInfo(this.mediaSource.location, 'audio/ogg');
+    const mediaInfo = new MediaInfo(this.mediaSource.location, 'audio/*');
     const metadata = Object.assign(new GenericMediaMetadata(), {
-      metadataType: MetadataType.GENERIC,
       title: this.mediaSource.title,
       images: getImages(this.mediaSource)
     });
     Object.assign(mediaInfo, {
       streamType: StreamType.LIVE,
-      duration: null,
       metadata
     });
     this.castContext.getCurrentSession()
       .loadMedia(new LoadRequest(mediaInfo))
       .then(() => (this.isPlaying = true))
-      .catch((errorCode) => console.error('error', errorCode));
+      .catch(errorCode => console.error('error', errorCode));
   }
 
   setMediaSource(mediaSource) {
@@ -98,6 +87,10 @@ export default class Caster extends EventEmitter {
 
 function getImages(mediaSource) {
   let { images } = mediaSource;
-  if (!Array.isArray(images) || !images.length) images = [DEFAULT_IMAGE_URL];
+  if (!Array.isArray(images) || !images.length) {
+    const imageUrl = new URL(window.location);
+    imageUrl.pathname = DEFAULT_IMAGE_URL;
+    images = [imageUrl.href];
+  }
   return images.map(it => new Image(it));
 }
