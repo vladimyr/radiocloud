@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events';
+import pkg from './package.json';
 
 const DEFAULT_IMAGE_URL = '/images/ee_logo_large.png';
 
@@ -68,6 +69,7 @@ export default class Caster extends EventEmitter {
     const mediaInfo = new MediaInfo(this.mediaSource.location, 'audio/*');
     const metadata = Object.assign(new GenericMediaMetadata(), {
       title: this.mediaSource.title,
+      subtitle: `⚡️ powered by ${pkg.name}`,
       images: getImages(this.mediaSource)
     });
     Object.assign(mediaInfo, {
