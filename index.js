@@ -151,7 +151,7 @@ window.__onGCastApiAvailable = (isAvailable) => {
 };
 
 App.run(stations);
-loadScript('https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1');
+loadScript('//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1');
 
 function params(options = {}) {
   return Object.keys(options)

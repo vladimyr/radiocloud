@@ -9,7 +9,7 @@ $button-color = #565d64
 @import "buttons"
 
 *
-  font-smoothing antialiased
+  -webkit-font-smoothing antialiased
   box-sizing border-box
 
 body
@@ -25,16 +25,14 @@ body
   border-radius 2.5px
   margin-bottom 10px
   border 1px solid #ddd
-  overflow auto
 
   .plyr
     min-width auto
-    float none
 
 .controls
   display flex
   padding 10px
-  background #ffffff
+  background #fff
 
   .btn-cast
     padding 4px
@@ -42,29 +40,21 @@ body
     --connected-color: $accent
 
     &:hover
-      --disconnected-color: white
-      --connected-color: white
+      --disconnected-color: #fff
+      --connected-color: #fff
 
   .btn-popup
     display none
-
-@media (min-width: 768px)
-  .plyr.plyr--audio
-    width 100%
-  .plyr.plyr--audio .plyr__volume
-    max-width 140px
-  .player-wrapper .plyr
-    float left
-  .controls .btn-popup
-    display inline-block
+    @media (min-width: 768px)
+      display block
 
 .plyr--audio .plyr
   &__controls
     border none
 
   &__volume
-    max-width 160px
-    display block
+    max-width unset
+    margin-left 5px
 
   &__controls button:hover
     background $accent
@@ -127,7 +117,7 @@ box($border = 1px solid #ddd, $border-radius = 2.5px)
     border 1px solid $playlist-selector
     border-radius $border-radius 0 0 $border-radius
     background $playlist-selector
-    color #ffffff
+    color #fff
     padding 0 10px
 
   .icon i.material-icons
