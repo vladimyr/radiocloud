@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/vladimyr/radiocloud",
   "dependencies": {
-    "choices.js": "^4.0.0",
+    "choices.js": "^6.0.3",
     "fade": "^0.2.0",
     "plyr": "^3.5.2"
   },
