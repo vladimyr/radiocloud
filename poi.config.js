@@ -19,6 +19,7 @@ module.exports = (options, req) => ({
     appname: name
   },
   extendWebpack(config) {
+    config.resolve.alias.merge(aliases);
     /* eslint-disable indent */
     config.module
       .rule('aot')
@@ -30,7 +31,6 @@ module.exports = (options, req) => ({
         .end()
       .use('aot-loader')
         .loader('aot-loader');
-    config.resolve.alias.merge(aliases);
     /* eslint-enable indent */
   },
   sourceMap: options.mode === 'development'
