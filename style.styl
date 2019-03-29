@@ -19,6 +19,8 @@ body
 
 .widget
   width 280px
+  @media (max-width: 600px)
+    width 100%
 
 .player-wrapper
   display flex
@@ -28,6 +30,7 @@ body
 
   .plyr
     min-width auto
+    flex-grow 1
 
 .controls
   display flex
@@ -36,12 +39,16 @@ body
 
   .btn-cast
     padding 4px
-    --disconnected-color: $button-color
-    --connected-color: $accent
+    --disconnected-color $button-color
+    --connected-color $accent
 
     &:hover
-      --disconnected-color: #fff
-      --connected-color: #fff
+      --disconnected-color #fff
+      --connected-color #fff
+
+    // Hide google cast button if casting is not available
+    &:not([style])
+      display none
 
   .btn-popup
     display none
@@ -105,8 +112,8 @@ box($border = 1px solid #ddd, $border-radius = 2.5px)
       outline none
 
 .playlist
-  $border = 1px solid #ddd
-  box($border)
+  $border-radius = 2.5px
+  box($border-radius: $border-radius)
   display flex
   line-height 38px
   user-select none
@@ -146,9 +153,3 @@ box($border = 1px solid #ddd, $border-radius = 2.5px)
   a:hover
     background #f2f2f2
 
-@media (max-width: 600px)
-  .widget
-    width: 100%
-
-  .player-wrapper .plyr
-    min-width: 85%

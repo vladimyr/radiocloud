@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/vladimyr/radiocloud",
   "dependencies": {
-    "choices.js": "^6.0.3",
+    "choices.js": "^7.0.0",
     "fade": "^0.2.0",
     "plyr": "^3.5.2"
   },
@@ -52,7 +52,7 @@
     "cson-parser": "^4.0.2",
     "del-cli": "^1.1.0",
     "elementtree": "^0.1.7",
-    "eslint": "^5.15.1",
+    "eslint": "^5.15.3",
     "eslint-config-semistandard": "^13.0.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
