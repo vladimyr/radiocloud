@@ -48,7 +48,7 @@
   "devDependencies": {
     "aot-loader": "^1.0.1",
     "avprobemeta": "0.0.3",
-    "cli-real-favicon": "^0.0.7",
+    "cli-real-favicon": "^0.0.8",
     "cson-parser": "^4.0.2",
     "del-cli": "^2.0.0",
     "elementtree": "^0.1.7",
