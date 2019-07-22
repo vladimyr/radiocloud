@@ -62,7 +62,7 @@
     "git-rev-sync": "^1.12.0",
     "minimist": "^1.2.0",
     "p-map": "^3.0.0",
-    "poi": "^9.6.13",
+    "poi": "^12.0.0",
     "poi-preset-buble": "^9.2.0",
     "season": "^6.0.2",
     "stylus": "^0.54.5",
