@@ -5,6 +5,8 @@ import Choices from 'choices.js';
 import fade from 'fade';
 import stations from './stations?aot';
 
+import 'choices.js/public/assets/styles/choices.css';
+import 'plyr/dist/plyr.css';
 import './style.styl';
 
 // const KEY_SPACE = 32;
@@ -13,7 +15,7 @@ const KEY_K = 75;
 class Player extends Plyr {
   constructor(...args) {
     super(...args);
-    this._hooks = [];
+    this._hooks = {};
   }
 
   play() {
@@ -46,7 +48,7 @@ const App = (new class {
     this.streamInfo = this.setupStreamInfo('.stream-info');
     const stationUrl = this.plyr.storage.get('stationUrl');
     const byStationUrl = it => it.location === stationUrl;
-    const selectedStation = stations.filter(byStationUrl)[0] || stations[0];
+    const [selectedStation] = stations.filter(byStationUrl) || stations;
     this.setStation(selectedStation);
     this.stationPicker = this.setupStationPicker('.station-picker', stations);
 
@@ -71,7 +73,7 @@ const App = (new class {
     }, { useCapture: true });
     // Setup player.
     const plyr = new Player(selector, {
-      controls: [ 'play', 'mute', 'volume' ],
+      controls: ['play', 'mute', 'volume'],
       keyboard: { focused: true, global: true }
     });
     // Install action hooks.

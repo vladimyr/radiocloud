@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import pkg from './package.json';
 
-const DEFAULT_IMAGE_URL = '/images/ee_logo_large.png';
+const DEFAULT_IMAGE_URL = require('./static/images/ee_logo_large.png');
 
 const {
   CastContext,

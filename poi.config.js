@@ -1,37 +1,43 @@
+'use strict';
+
 const { name, version } = require('./package.json');
 const revision = require('git-rev-sync').short();
 
-const filename = mode => mode === 'development' ? 'index.html' : '200.html';
 const aliases = {
   'choices.js$': 'choices.js/public/assets/scripts/choices.js'
 };
+const isProduction = process.env.NODE_ENV === 'production';
 
-module.exports = (options, req) => ({
-  entry: './index.js',
-  presets: [
-    require('poi-preset-buble')()
+/** @type {import('poi').Config} */
+const config = {
+  plugins: [
+    '@poi/bundle-report'
   ],
-  html: {
-    version,
-    revision,
-    template: 'index.html',
-    filename: filename(options.mode),
-    appname: name
+  entry: './index.js',
+  output: {
+    html: {
+      version,
+      revision,
+      template: 'index.html',
+      filename: isProduction ? '200.html' : 'index.html',
+      appname: name
+    },
+    sourceMap: !isProduction
   },
-  extendWebpack(config) {
+  chainWebpack(config) {
     config.resolve.alias.merge(aliases);
     /* eslint-disable indent */
-    config.module
-      .rule('aot')
+    config.module.rule('aot')
       .test(/\.js$/)
-      .enforce('post')
+      .enforce('pre')
       .resourceQuery(/\?aot$/)
       .exclude
         .add(/node_modules/)
         .end()
       .use('aot-loader')
-        .loader('aot-loader');
+        .loader(require.resolve('aot-loader'));
     /* eslint-enable indent */
-  },
-  sourceMap: options.mode === 'development'
-});
+  }
+};
+
+module.exports = config;

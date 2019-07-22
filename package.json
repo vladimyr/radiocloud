@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "dev": "poi",
-    "build": "poi build",
+    "dev": "poi --serve",
+    "build": "poi --prod",
     "clean": "del-cli !dist/.gitkeep dist/*",
+    "webpack:inspect-config": "poi --inspect-webpack",
+    "webpack:bundle-report": "poi --prod --bundle-report",
     "favicons:generate": "real-favicon generate ./favicons.config.json ./dist/favicons.json ./dist/",
     "favicons:inject": "real-favicon inject ./dist/favicons.json ./dist/ ./dist/200.html",
     "favicons": "npm run favicons:generate && npm run favicons:inject",
@@ -46,6 +48,8 @@
     "plyr": "^3.5.6"
   },
   "devDependencies": {
+    "@poi/plugin-bundle-report": "^12.1.1",
+    "@types/poi": "^12.5.0",
     "aot-loader": "^1.0.1",
     "avprobemeta": "0.0.3",
     "cli-real-favicon": "^0.0.8",
@@ -62,8 +66,7 @@
     "git-rev-sync": "^1.12.0",
     "minimist": "^1.2.0",
     "p-map": "^3.0.0",
-    "poi": "^9.6.13",
-    "poi-preset-buble": "^9.2.0",
+    "poi": "^12.7.0",
     "season": "^6.0.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2"
