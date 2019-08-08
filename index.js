@@ -29,6 +29,7 @@ class Player extends Plyr {
 }
 
 const castString = val => val || 'unknown';
+const first = arr => arr[0];
 const formatCodec = (codec, profile) => profile ? `${codec} (${profile})` : codec;
 const formatBitrate = bitrate => bitrate && `${(bitrate / 1000).toFixed(2)} kb/s`;
 const formatSampleRate = sampleRate => sampleRate && `${(sampleRate / 1000).toFixed(2)} kHz`;
@@ -48,7 +49,7 @@ const App = (new class {
     this.streamInfo = this.setupStreamInfo('.stream-info');
     const stationUrl = this.plyr.storage.get('stationUrl');
     const byStationUrl = it => it.location === stationUrl;
-    const [selectedStation] = stations.filter(byStationUrl) || stations;
+    const [selectedStation = first(stations)] = stations.filter(byStationUrl);
     this.setStation(selectedStation);
     this.stationPicker = this.setupStationPicker('.station-picker', stations);
 
@@ -130,7 +131,7 @@ const App = (new class {
     window.open(url, document.title, params({ width, height }));
   }
 
-  setStation(station) {
+  setStation(station = {}) {
     document.title = `${station.title} - Radiocloud`;
     this.plyr.storage.set({ stationUrl: station.location });
     this.station = station;
