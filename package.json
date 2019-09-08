@@ -54,7 +54,7 @@
     "avprobemeta": "0.0.3",
     "cli-real-favicon": "^0.0.8",
     "cson-parser": "^4.0.2",
-    "del-cli": "^2.0.0",
+    "del-cli": "^3.0.0",
     "elementtree": "^0.1.7",
     "eslint": "^6.1.0",
     "eslint-config-semistandard": "^15.0.0",
