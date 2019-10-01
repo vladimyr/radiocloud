@@ -29,6 +29,9 @@ playlist:
     title: "Radio Brač",
     location: "http://s8.iqstreaming.com:8066/;"
   ,
+    title: "Radio Deejay",
+    location: "http://live.deejay.hr:7002/;"
+  ,
     title: "Radio Kaštela",
     location: "http://live.nrk.hr:8010/stream"
   ,
