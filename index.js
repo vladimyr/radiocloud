@@ -154,7 +154,13 @@ window.__onGCastApiAvailable = (isAvailable) => {
 };
 
 App.run(stations);
-loadScript('//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1');
+// Load chromecast sender.
+const casterScriptUrl = new URL(
+  '//www.gstatic.com/cv/js/sender/v1/cast_sender.js',
+  location.origin
+);
+casterScriptUrl.searchParams.set('loadCastFramework', 1);
+loadScript(casterScriptUrl);
 
 function params(options = {}) {
   return Object.keys(options)
