@@ -26,26 +26,26 @@ playlist:
     title: "Hit Radio",
     location: "http://s8.iqstreaming.com:8012/stream"
   ,
-    title: "Jadranski Radio",
-    location: "http://85.17.172.242:8060/"
-  ,
     title: "Laganini Zagreb",
-    location: "http://50.7.70.58:8915/;"
+    location: "http://194.145.208.251:8000/;"
+  ,
+    title: "Laganini DAB",
+    location: "http://194.145.208.251:8002/;"
   ,
     title: "Narodni Radio",
     location: "http://live.narodni.hr:8059/;"
   ,
     title: "Narodni Radio - AAAA",
-    location: "http://live.narodni.hr:8043/;"
+    location: "http://live.narodni.hr:8045/;"
   ,
     title: "Narodni Radio - LJUBAV",
-    location: "http://live.narodni.hr:8055/;"
+    location: "http://live.narodni.hr:8181/;"
   ,
     title: "Narodni Radio - OPUSTENO",
     location: "http://live.narodni.hr:8039/; "
   ,
     title: "Narodni Radio - SAMO SVIRAJ",
-    location: "http://live.narodni.hr:8047/;"
+    location: "http://live.narodni.hr:8175/;"
   ,
     title: "Narodni Radio - VESELO",
     location: "http://live.narodni.hr:8051/;"
@@ -62,9 +62,6 @@ playlist:
     title: "Radio Deejay",
     location: "http://live.deejay.hr:7002/;"
   ,
-    title: "Radio Kaštela",
-    location: "http://live.nrk.hr:8010/stream"
-  ,
     title: "Radio Student",
     location: "http://161.53.122.184:8000/AAC128.aac"
   ,
@@ -75,7 +72,7 @@ playlist:
     location: "http://bravo856.server4you.de:8016/stream"
   ,
     title: "Rock Radio SI",
-    location: "http://212.18.63.135:9034/;"
+    location: "http://stream.rockradio.si:9034/stream"
   ,
     title: "Ultra Split",
     location: "http://c5.hostingcentar.com:8061/stream"
