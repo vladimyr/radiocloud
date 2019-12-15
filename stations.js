@@ -9,7 +9,7 @@ const streamInfo = require('./scripts/streamInfo');
 module.exports = async function () {
   const cson = await readFile(path.join(__dirname, './stations.cson'));
   const stations = CSON.parse(cson);
-  return pMap(stations.playlist.track, async (station) => {
+  return pMap(stations.playlist.track, async station => {
     try {
       const stream = await getStreamInfo(station);
       if (!stream) return station;

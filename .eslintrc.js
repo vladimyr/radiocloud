@@ -1,14 +1,19 @@
+'use strict';
+
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
-  extends: 'semistandard',
+  extends: '@vladimyr',
+  overrides: [{
+    files: ['index.js', './caster.js'],
+    parserOptions: {
+      sourceType: 'module'
+    }
+  }],
   globals: {
     cast: true,
     chrome: true,
   },
-  rules: {
-    'prefer-const': 'error',
-    'space-before-function-paren': ['error', {
-      anonymous: 'always',
-      named: 'never'
-    }]
+  env: {
+    browser: true
   }
 };

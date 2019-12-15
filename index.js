@@ -1,5 +1,3 @@
-'use strict';
-
 import Plyr from 'plyr';
 import Choices from 'choices.js';
 import fade from 'fade';
@@ -145,7 +143,7 @@ const App = (new class {
   }
 }(document.body));
 
-window.__onGCastApiAvailable = (isAvailable) => {
+window.__onGCastApiAvailable = isAvailable => {
   if (!isAvailable) return;
   require.ensure([], () => {
     const Caster = require('./caster').default;
