@@ -2,53 +2,35 @@
 #       http://www.xspf.org/jspf/
 playlist:
   track: [
-    title: "Antena Zagreb Rock",
-    location: "http://live.antenazagreb.hr:8019/;"
-  ,
-    title: "Antena Zagreb Love",
-    location: "http://live.antenazagreb.hr:8007/;"
-  ,
-    title: "Antena Zagreb Hit",
-    location: "http://live.antenazagreb.hr:8011/;"
+    title: "Antena Zagreb",
+    location: "http://live.antenazagreb.hr:8000/;"
   ,
     title: "Antena Zagreb Dance",
     location: "http://live.antenazagreb.hr:8015/;"
   ,
-    title: "Antena Zagreb",
-    location: "http://live.antenazagreb.hr:8000/;"
+    title: "Antena Zagreb Hit",
+    location: "http://live.antenazagreb.hr:8011/;"
+  ,
+    title: "Antena Zagreb Love",
+    location: "http://live.antenazagreb.hr:8007/;"
+  ,
+    title: "Antena Zagreb Rock",
+    location: "http://live.antenazagreb.hr:8019/;"
   ,
     title: "Enter Zagreb",
     location: "http://live.enterzagreb.hr:8023/stream"
   ,
+    title: "ExtraFM",
+    location: "http://streams.extrafm.hr:8110/;"
+  ,
     title: "Hit Radio",
     location: "http://s8.iqstreaming.com:8012/stream"
   ,
-    title: "Radio Dalmacija",
-    location: "http://shoutcast.pondi.hr:8000/stream"
+    title: "Jadranski Radio",
+    location: "http://85.17.172.242:8060/"
   ,
-    title: "Radio Brač",
-    location: "http://s8.iqstreaming.com:8066/;"
-  ,
-    title: "Radio Deejay",
-    location: "http://live.deejay.hr:7002/;"
-  ,
-    title: "Radio Kaštela",
-    location: "http://live.nrk.hr:8010/stream"
-  ,
-    title: "Radio Trogir",
-    location: "http://bravo856.server4you.de:8016/stream"
-  ,
-    title: "Radio Student",
-    location: "http://161.53.122.184:8000/AAC128.aac"
-  ,
-    title: "Radio Sunce",
-    location: "http://shoutcast.pondi.hr:8002/;"
-  ,
-    title: "Ultra Split",
-    location: "http://c5.hostingcentar.com:8061/stream"
-  ,
-    title: "Otvoreni Radio",
-    location: "http://87.98.250.149:8002/;"
+    title: "Laganini Zagreb",
+    location: "http://50.7.70.58:8915/;"
   ,
     title: "Narodni Radio",
     location: "http://live.narodni.hr:8059/;"
@@ -56,27 +38,45 @@ playlist:
     title: "Narodni Radio - AAAA",
     location: "http://live.narodni.hr:8043/;"
   ,
-    title: "Narodni Radio - SAMO SVIRAJ",
-    location: "http://live.narodni.hr:8047/;"
-  ,
     title: "Narodni Radio - LJUBAV",
     location: "http://live.narodni.hr:8055/;"
-  ,
-    title: "Narodni Radio - VESELO",
-    location: "http://live.narodni.hr:8051/;"
   ,
     title: "Narodni Radio - OPUSTENO",
     location: "http://live.narodni.hr:8039/; "
   ,
-    title: "Jadranski Radio",
-    location: "http://85.17.172.242:8060/"
+    title: "Narodni Radio - SAMO SVIRAJ",
+    location: "http://live.narodni.hr:8047/;"
   ,
-    title: "ExtraFM",
-    location: "http://streams.extrafm.hr:8110/;"
+    title: "Narodni Radio - VESELO",
+    location: "http://live.narodni.hr:8051/;"
+  ,
+    title: "Otvoreni Radio",
+    location: "http://87.98.250.149:8002/;"
+  ,
+    title: "Radio Brač",
+    location: "http://s8.iqstreaming.com:8066/;"
+  ,
+    title: "Radio Dalmacija",
+    location: "http://shoutcast.pondi.hr:8000/stream"
+  ,
+    title: "Radio Deejay",
+    location: "http://live.deejay.hr:7002/;"
+  ,
+    title: "Radio Kaštela",
+    location: "http://live.nrk.hr:8010/stream"
+  ,
+    title: "Radio Student",
+    location: "http://161.53.122.184:8000/AAC128.aac"
+  ,
+    title: "Radio Sunce",
+    location: "http://shoutcast.pondi.hr:8002/;"
+  ,
+    title: "Radio Trogir",
+    location: "http://bravo856.server4you.de:8016/stream"
   ,
     title: "Rock Radio SI",
     location: "http://212.18.63.135:9034/;"
   ,
-    title: "Laganini Zagreb",
-    location: "http://50.7.70.58:8915/;"
+    title: "Ultra Split",
+    location: "http://c5.hostingcentar.com:8061/stream"
   ]
