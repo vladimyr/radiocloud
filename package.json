@@ -2,46 +2,46 @@
   "name": "radiocloud",
   "version": "1.0.0",
   "description": "Online radio player",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint .",
-    "dev": "poi --serve",
-    "build": "poi --prod",
-    "clean": "del-cli !dist/.gitkeep dist/*",
-    "webpack:inspect-config": "poi --inspect-webpack",
-    "webpack:bundle-report": "poi --prod --bundle-report",
-    "favicons:generate": "real-favicon generate ./favicons.config.json ./dist/favicons.json ./dist/",
-    "favicons:inject": "real-favicon inject ./dist/favicons.json ./dist/ ./dist/200.html",
-    "favicons": "npm run favicons:generate && npm run favicons:inject",
-    "playlists": "node scripts/createPlaylists.js ./dist/",
-    "predeploy": "npm run build && npm run playlists && npm run favicons",
-    "deploy": "surge ./dist/ -d $npm_package_config_deploymentUrl",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "config": {
-    "deploymentUrl": "https://radiocloud.surge.sh"
-  },
   "keywords": [
-    "radio",
+    "icecast",
     "player",
-    "stream",
+    "radio",
     "shoutcast",
-    "icecast"
+    "stream"
   ],
+  "homepage": "https://github.com/vladimyr/radiocloud",
+  "bugs": {
+    "url": "https://github.com/vladimyr/radiocloud/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/vladimyr/radiocloud.git"
   },
+  "license": "MIT",
   "author": {
-    "email": "d.vladimyr@gmail.com",
     "name": "Dario Vladovic",
+    "email": "d.vladimyr+dev@gmail.com",
     "url": "https://github.com/vladimyr"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vladimyr/radiocloud/issues"
+  "main": "index.js",
+  "scripts": {
+    "build": "poi --prod",
+    "clean": "del-cli !dist/.gitkeep dist/*",
+    "predeploy": "npm run build && npm run playlists && npm run favicons",
+    "deploy": "surge ./dist/ -d $npm_package_config_deploymentUrl",
+    "dev": "poi --serve",
+    "favicons": "npm run favicons:generate && npm run favicons:inject",
+    "favicons:generate": "real-favicon generate ./favicons.config.json ./dist/favicons.json ./dist/",
+    "favicons:inject": "real-favicon inject ./dist/favicons.json ./dist/ ./dist/200.html",
+    "lint": "eslint .",
+    "playlists": "node scripts/createPlaylists.js ./dist/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack:bundle-report": "poi --prod --bundle-report",
+    "webpack:inspect-config": "poi --inspect-webpack"
   },
-  "homepage": "https://github.com/vladimyr/radiocloud",
+  "config": {
+    "deploymentUrl": "https://radiocloud.surge.sh"
+  },
   "dependencies": {
     "choices.js": "^7.0.0",
     "fade": "^0.2.0",
@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@poi/plugin-bundle-report": "^12.1.2",
+    "@types/eslint": "^6.1.3",
     "@types/poi": "^12.5.0",
     "@vladimyr/eslint-config": "^1.1.2",
     "aot-loader": "^1.0.1",
