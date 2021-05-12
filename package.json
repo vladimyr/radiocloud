@@ -71,6 +71,6 @@
     "poi": "^12.7.4",
     "season": "^6.0.2",
     "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^6.0.0"
   }
 }
