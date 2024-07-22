@@ -54,7 +54,7 @@
     "@vladimyr/eslint-config": "^1.1.2",
     "aot-loader": "^1.0.1",
     "avprobemeta": "0.0.3",
-    "cli-real-favicon": "^0.0.8",
+    "cli-real-favicon": "^0.0.9",
     "cson-parser": "^4.0.3",
     "del-cli": "^3.0.0",
     "elementtree": "^0.1.7",
