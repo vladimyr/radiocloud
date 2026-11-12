@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@poi/plugin-bundle-report": "^12.1.2",
-    "@types/eslint": "^7.0.0",
+    "@types/eslint": "^9.0.0",
     "@types/poi": "^12.5.0",
     "@vladimyr/eslint-config": "^1.1.2",
     "aot-loader": "^1.0.1",
